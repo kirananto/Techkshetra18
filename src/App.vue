@@ -17,11 +17,17 @@
         :clickEffect="true"
         clickMode="push" >
       </vue-particles>
-      <fab :actions="fabActions"
+      <fab 
+      :actions="fabActions"
       :position="position"
       :bg-color="bgColor"
-       @cache="cache"
-       @alertMe="alert"
+      :main-icon="mainIcon"
+       @sponsors="sponsors"
+       @autoshow="autoshow"
+       @workshops="workshops"
+       @events="events"
+       @about="about"
+       @contact="contact"
   ></fab>
     <router-view/>
   </div>
@@ -38,26 +44,61 @@ export default {
     return {
       bgColor: '#c13a48',
       position: 'bottom-right',
+      mainIcon: 'dehaze',
       fabActions: [
               {
-                  name: 'cache',
-                  icon: 'cached',
-                  tooltip: 'cache'
+                  name: 'sponsors',
+                  icon: 'business_center',
+                  tooltip: 'Sponsors'
               },
               {
-                  name: 'alertMe',
-                  icon: 'add_alert'
+                  name: 'workshops',
+                  icon: 'build',
+                  tooltip: 'Workshops'
+              },
+              {
+                  name: 'events',
+                  icon: 'event',
+                  tooltip: 'Events'
+              },
+              {
+                  name: 'autoshow',
+                  icon: 'directions_car',
+                  tooltip: 'AutoShow'
+              },
+              {
+                  name: 'about',
+                  icon: 'supervisor_account',
+                  tooltip: 'About Us'
+              },
+              {
+                  name: 'contact',
+                  icon: 'contacts',
+                  tooltip: 'Contact Us'
               }
           ]
     }
   },
   methods: {
-      cache () {
-          console.log('Cache Cleared')
+      sponsors () {
+          this.$router.replace('/sponsors')
       },
-      alert () {
-          alert('Clicked on alert icon')
+      autoshow () {
+        this.$router.replace('/autoshow')
+      },
+      workshops () {
+        this.$router.replace('/workshops')
+      },
+      events () {
+        this.$router.replace('/events')
+      },
+      about () {
+        this.$router.replace('/aboutus')
+      },
+      contact () {
+        this.$router.replace('/contact')
       }
+
   }
 }
 </script>
