@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <img src="/static/techkshetra_logo.svg" alt="">
     <h1>TECKSHETRA</h1>
   </div>
 </template>
@@ -21,17 +22,10 @@ h1, h2 {
   font-weight: normal;
   font-family:'Samarkan Normal';
   font-size:10rem;
-  color:#fff;
+  color:#D6D0D0;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+img {
+  width:20rem;
+  right:50%;
 }
 </style>
