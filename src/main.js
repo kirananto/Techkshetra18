@@ -5,11 +5,12 @@ import VueRouter from 'vue-router'
 import routes from './router/routes'
 import { sync } from 'vuex-router-sync'
 import store from './store'
-
 import AppView from './App.vue'
+import VueParticles from 'vue-particles'
 
 Vue.config.productionTip = false
 
+Vue.use(VueParticles)
 Vue.use(VueRouter)
 
 var router = new VueRouter({
