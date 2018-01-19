@@ -17,13 +17,48 @@
         :clickEffect="true"
         clickMode="push" >
       </vue-particles>
+      <fab :actions="fabActions"
+      :position="position"
+      :bg-color="bgColor"
+       @cache="cache"
+       @alertMe="alert"
+  ></fab>
     <router-view/>
   </div>
 </template>
 
 <script>
+import fab from 'vue-fab'
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    fab
+  },
+  data () {
+    return {
+      bgColor: '#c13a48',
+      position: 'bottom-right',
+      fabActions: [
+              {
+                  name: 'cache',
+                  icon: 'cached',
+                  tooltip: 'cache'
+              },
+              {
+                  name: 'alertMe',
+                  icon: 'add_alert'
+              }
+          ]
+    }
+  },
+  methods: {
+      cache () {
+          console.log('Cache Cleared')
+      },
+      alert () {
+          alert('Clicked on alert icon')
+      }
+  }
 }
 </script>
 
