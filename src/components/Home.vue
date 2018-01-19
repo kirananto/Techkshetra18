@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <img src="/static/techkshetra_logo.svg" alt="">
+    <img src="/static/techkshetra_logo.svg" alt="" class="logo"> 
     <h1>TECKSHETRA</h1>
   </div>
 </template>
@@ -21,11 +21,20 @@ export default {
 h1, h2 {
   font-weight: normal;
   font-family:'Samarkan Normal';
-  font-size:10rem;
+  font-size:5rem;
   color:#D6D0D0;
 }
 img {
-  width:20rem;
-  right:50%;
+  width:12rem;
+
+
+}
+.hello {
+  position: absolute;
+  top: 70%;
+  right: 50%;
+  transform: translate(50%,-50%);
+
+
 }
 </style>
