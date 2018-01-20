@@ -1,17 +1,6 @@
 <template>
   <div class="hello container">
-    <div class="offset-md-4 col-md-5 col-11 offset-1">
-   <div class="row offset-md-2 offset-2">
-    <img src="/static/techkshetra_logo.svg" alt="" class="logo"> 
-    </div>
-  <br>
-  <div class="row col-md-4">
-    <h1>TECKSHETRA</h1>
-  </div>
-   <div class="row col-md-10 offset-4">
-    <h2>Coming Soon...</h2>
-  </div>
-    </div>
+    <img src="/static/techkshetra_logo.svg" alt="" class="logo img-responsive">
   </div>
 </template>
 
@@ -20,7 +9,6 @@ export default {
   name: 'Home',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
     }
   }
 }
@@ -31,28 +19,26 @@ export default {
 h1, h2 {
   font-weight: normal;
   font-family:'Samarkan Normal';
+  font-size:2rem;
   color:#D6D0D0;
 }
 
-h1 {
-   font-size:5rem;
+img {
+  max-width: 50%;
 }
-@media (max-width: 991px) {
-  h1 {
-    font-size: 3.5rem;
+
+@media screen and (max-width:480px){
+  img {
+    max-width: 90%;
   }
 }
 
-img {
-  width:12rem;
 
 
-}
 .hello {
   position: absolute;
-  top: 70%;
+  top: 60%;
   right: 50%;
-  max-width: 100%;
   transform: translate(50%,-50%);
 
 
