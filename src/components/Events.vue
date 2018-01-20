@@ -22,6 +22,9 @@ export default {
         eventid: 1234
       }]
     }
+  },
+  mounted () {
+    //TODO code to fetch event details from firestore on mounting app
   }
 }
 </script>
