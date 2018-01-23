@@ -7,6 +7,7 @@
 * Copyright 2011 @louis_remi
 * Licensed under the MIT license.
 */
+var $ = jQuery;
 var $event = $.event,
 $special,
 resizeTimeout;
