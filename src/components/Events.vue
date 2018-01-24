@@ -3,9 +3,8 @@
     <h1>EVENTS</h1>
      <div class="container-fluid">
       <br>
-      <div class="row" v-for="(event,key) in events" :key="key">
-        <div class="item col-md-3" v-for="(item,k) in event" :key="k" @click="setSelected(item, k)">
-          <div class="thumb"> {{item.name}}</div>
+      <div class="row offset-md-2 container" v-for="(event,key) in events" :key="key">
+        <div class="col-md-3 thumb" :style="{ 'background-image': 'url(' + item.photoURL + ')' }"  v-for="(item,k) in event" :key="k" @click="setSelected(item, k)">
         </div>
         <div class="detail col-md-12" v-if="selected.event === event[selected.value]" transition>
           <div class="row col-md-1 offset-md-11">
@@ -33,19 +32,19 @@ export default {
       events: [[
       {
         name: 'Amazing Race1',
-        photoURL: '',
+        photoURL: '/static/images/1.jpg',
         eventid: 1234
       }, {
         name: 'Amazing Race2',
-        photoURL: '',
+        photoURL: '/static/images/1.jpg',
         eventid: 1234
       }, {
-        name: 'Amazing Race3',
-        photoURL: '',
+        name: 'Amazing Race1',
+        photoURL: '/static/images/1.jpg',
         eventid: 1234
       }, {
-        name: 'Amazing Race4',
-        photoURL: '',
+        name: 'Amazing Race2',
+        photoURL: '/static/images/1.jpg',
         eventid: 1234
       }], [ {
         name: 'Amazing Race',
@@ -91,11 +90,6 @@ h1, h2 {
 h2 {
   font-size: 2rem;
 }
-.card {
-  background-color: white;
-  border-radius: 1rem;
-  height: 10rem;
-}
 
 .hello {
   position: absolute;
@@ -107,18 +101,34 @@ h2 {
 
 }
 /* TEST */
-.item {
-  padding: 0.5rem;
-}
 .thumb {
-  width: 100%;
-  height: 20rem;
+  
+  height:15vw;
+  background-size: cover;
   border-radius: .5rem;
-  background: #fff;
+  filter: grayscale(100%);
 }
 
 .thumb:hover {
-  background: #9c0;
+  filter: grayscale(0%);
+  background-size: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #008CBA;
+}
+
+.container:hover .overlay {
+  opacity: 1;
 }
 
 .detail {
