@@ -47,12 +47,20 @@ export default {
         photoURL: '/static/images/1.jpg',
         eventid: 1234
       }], [ {
-        name: 'Amazing Race',
-        photoURL: '',
+        name: 'Amazing Race1',
+        photoURL: '/static/images/1.jpg',
         eventid: 1234
       }, {
-        name: 'Amazing Race',
-        photoURL: '',
+        name: 'Amazing Race2',
+        photoURL: '/static/images/1.jpg',
+        eventid: 1234
+      }, {
+        name: 'Amazing Race1',
+        photoURL: '/static/images/1.jpg',
+        eventid: 1234
+      }, {
+        name: 'Amazing Race2',
+        photoURL: '/static/images/1.jpg',
         eventid: 1234
       }]],
       selected: {
@@ -103,9 +111,8 @@ h2 {
 /* TEST */
 .thumb {
   
-  height:15vw;
+  height:15rem;
   background-size: cover;
-  border-radius: .5rem;
   filter: grayscale(100%);
 }
 
