@@ -25,6 +25,8 @@ h1, h2 {
 
 img {
   max-width: 50%;
+  margin-top: 30%;
+  z-index:100;
 }
 
 @media screen and (max-width:480px){
@@ -35,12 +37,4 @@ img {
 
 
 
-.hello {
-  position: absolute;
-  top: 60%;
-  right: 50%;
-  transform: translate(50%,-50%);
-
-
-}
 </style>

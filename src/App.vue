@@ -111,4 +111,15 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
+#particles-js {
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+  height: 100%;
+}
+
 </style>
