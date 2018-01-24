@@ -4,7 +4,8 @@
      <div class="container-fluid">
       <br>
       <div class="row offset-md-2 container" v-for="(event,key) in events" :key="key">
-        <div class="col-md-3 thumb" :style="{ 'background-image': 'url(' + item.photoURL + ')' }"  v-for="(item,k) in event" :key="k" @click="setSelected(item, k)">
+        <div class="col-md-3 thumb overlay red" :style="{ 'background-image': 'url(' + item.photoURL + ')' }"  v-for="(item,k) in event" :key="k" @click="setSelected(item, k)">
+          <span class="center-text">{{item.name}}</span>
         </div>
         <div class="detail col-md-12" v-if="selected.event === event[selected.value]" transition>
           <div class="row col-md-1 offset-md-11">
@@ -88,6 +89,8 @@ export default {
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+
 h1, h2 {
   font-weight: normal;
   font-family:'Samarkan Normal';
@@ -107,7 +110,7 @@ h2 {
   width: 100%;
   height: 100%;
 
-}
+} 
 /* TEST */
 .thumb {
   
@@ -121,20 +124,13 @@ h2 {
   background-size: cover;
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
+.col-md-3,thumb{
+
   transition: .5s ease;
   background-color: #008CBA;
 }
 
-.container:hover .overlay {
+.container:hover{
   opacity: 1;
 }
 
@@ -153,4 +149,51 @@ h2 {
   height: 0;
   opacity: 0;
 }
+
+/* OVERLAY */
+.center-text 
+{
+   position: absolute;
+   color:white;
+   font-weight: 900;
+   font-size: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.overlay {
+  position: relative;
+}
+
+.overlay:after {
+  position: absolute;
+  content:"";
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  opacity:0;
+}
+
+.overlay:hover:after  {
+  opacity: .5;
+}
+
+.red:after {
+  background-color: red;
+}
+
+.blue:after {
+  background-color: blue;
+}
+
+.green:after {
+  background-color: green;
+}
+
+.orange:after {
+  background-color: orange;
+}
+
 </style>
