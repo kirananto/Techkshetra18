@@ -195,7 +195,8 @@ h2 {
     text-transform: uppercase;
     letter-spacing: 2px;
     padding: 5px 5px;
-    border: 3px solid white;
+    border: 3px solid #c13a47;
+    /* border-radius: 10px; */
     display: inline-block;
     margin: 30px 0 0;
     outline: none;
@@ -209,18 +210,6 @@ h2 {
 
 .red:after, .red:before {
   background-color: red;
-}
-
-.blue:after {
-  background-color: blue;
-}
-
-.green:after {
-  background-color: green;
-}
-
-.orange:after {
-  background-color: orange;
 }
 
 </style>
