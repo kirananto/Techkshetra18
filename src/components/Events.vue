@@ -5,8 +5,10 @@
       <br>
       <div class="row offset-md-2 container" v-for="(event,key) in events" :key="key">
         <div class="col-md-3 thumb overlay red" :style="{ 'background-image': 'url(' + item.photoURL + ')' }"  v-for="(item,k) in event" :key="k" @click="setSelected(item, k)">
-          <!-- <span class="center-text">{{item.name}}</span> --> <span class="center-text">View more</span>
-        </div>
+          <!-- <span class="center-text">{{item.name}}</span>  -->
+          
+          <!-- <span class="center-text">View more</span>     -->
+              </div>
         <div class="detail col-md-12" v-if="selected.event === event[selected.value]" transition>
           <div class="row col-md-1 offset-md-11">
           <i class="material-icons" v-on:click="closeSelected">close</i>
@@ -37,11 +39,11 @@ export default {
         eventid: 1234
       }, {
         name: 'Amazing Race2',
-        photoURL: '/static/images/1.jpg',
+        photoURL: '/static/images/2.jpg',
         eventid: 1234
       }, {
         name: 'Amazing Race1',
-        photoURL: '/static/images/1.jpg',
+        photoURL: '/static/images/3.jpg',
         eventid: 1234
       }, {
         name: 'Amazing Race2',
@@ -49,11 +51,11 @@ export default {
         eventid: 1234
       }], [ {
         name: 'Amazing Race1',
-        photoURL: '/static/images/1.jpg',
+        photoURL: '/static/images/2.jpg',
         eventid: 1234
       }, {
         name: 'Amazing Race2',
-        photoURL: '/static/images/1.jpg',
+        photoURL: '/static/images/3.jpg',
         eventid: 1234
       }, {
         name: 'Amazing Race1',
@@ -61,7 +63,7 @@ export default {
         eventid: 1234
       }, {
         name: 'Amazing Race2',
-        photoURL: '/static/images/1.jpg',
+        photoURL: '/static/images/2.jpg',
         eventid: 1234
       }]],
       selected: {
@@ -170,8 +172,11 @@ h2 {
     z-index: 1;   
 }
 
-.center-text:hover{
-  z-index: 100;
+
+    
+.center-text:hover + .overlay {
+    display: block;
+    z-index: 100;
 }
 
 .overlay {
@@ -180,19 +185,29 @@ h2 {
 
 .overlay:after {
   position: absolute;
-  content:"";
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  opacity:0;
+  content:"Hello";
+  color:white;
+   font-weight: 900;
+   font-size: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 5px 5px;
+    border: 3px solid white;
+    display: inline-block;
+    margin: 30px 0 0;
+    outline: none;
+    z-index: 1; 
+    opacity:0;
 }
 
 .overlay:hover:after  {
-  opacity: .4;
+  opacity:1;
 }
 
-.red:after {
+.red:after, .red:before {
   background-color: red;
 }
 
