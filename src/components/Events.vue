@@ -153,7 +153,7 @@ h2 {
 }
 
 /* OVERLAY */
-.center-text 
+/* .center-text 
 {
    position: absolute;
    color:white;
@@ -170,7 +170,7 @@ h2 {
     margin: 30px 0 0;
     outline: none;
     z-index: 1;   
-}
+} */
 
 
     
