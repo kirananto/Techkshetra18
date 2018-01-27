@@ -18,8 +18,8 @@
           </div>
           <div class="col-md-6">
               <h2>{{selected.event.name}}</h2>
-              <p class="desc" >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-              <a href=""><div class="details-btn">Register</div></a>
+              <p class="desc" >{{selected.event.details}}</p>
+              <div class="details-btn" @click="register">Register</div>
           </div>
           </div>
         </div>
@@ -31,6 +31,8 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import firebase from 'firebase'
+require('firebase/firestore')
 export default {
   name: 'Events',
   data () {
@@ -65,6 +67,15 @@ export default {
       } else {
         return false
       }
+    },
+    register: function () {
+       var provider = new firebase.auth.GoogleAuthProvider()
+        firebase.auth().signInWithPopup(provider)
+        .then((result) => {
+          // on auth
+        }).catch((error) => {
+          console.log(error.message)
+        })
     }
   },
   computed: {
