@@ -207,7 +207,6 @@ h2 {
     font-weight: 900;
     font-size: 16px;
     color: white;
-   
     text-transform: uppercase;
     letter-spacing: 2px;
     padding: 10px 20px;
@@ -215,10 +214,12 @@ h2 {
     display: inline-block;
     margin: -25px 0 0 0;
     outline: none;
+    &:hover {
+    color: black !important;
+    background-color: white !important;
+    }
     @media screen and (max-width: 420px){
       margin-top: 10px !important;
     }
 }
-
-
 </style>
