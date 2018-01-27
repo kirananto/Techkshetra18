@@ -1,15 +1,14 @@
 <template>
   <div class="hello">
     <h1>EVENTS</h1>
-     <div class="container-fluid">
-      <br>
-      <div class="row offset-md-2 container" v-for="(event,key) in events" :key="key">
-        <div class="col-md-3 thumb overlay red" :style="{ 'background-image': 'url(' + item.photoURL + ')' }"  v-for="(item,k) in event" :key="k" @click="setSelected(item, k)">
-          <!-- <span class="center-text">{{item.name}}</span>  -->
-          
-          <!-- <span class="center-text">View more</span>     -->
-              </div>
-        <div class="detail col-md-12" v-if="selected.event === event[selected.value]" transition>
+     <div class="container">
+      <div class="row"  ref="row">
+      <!-- <div class="row offset-md-2 container" v-for="(event,key) in events" :key="key"> -->
+        <div class="con" v-for="(item,k) in events" :key="k">
+        
+        <div class="thumb overlay red" ref="item" :style="{ 'background-image': 'url(' + item.photoURL + ')' }"  @click="setSelected(item, k)">
+        </div>
+        <div class="detail col-md-12" v-if="selected.value === (k-noele+1)/noele" transition>
           <div class="row col-md-1 offset-md-11">
           <i class="material-icons" v-on:click="closeSelected">close</i>
           </div>
@@ -25,6 +24,7 @@
         </div>
      </div>
   </div>
+  </div>
 </template>
 
 <script>
@@ -32,7 +32,7 @@ export default {
   name: 'Events',
   data () {
     return {
-      events: [[
+      events: [
       {
         name: '3\'s Football',
         photoURL: '/static/images/Non_tech/3sFootball.svg',
@@ -49,7 +49,7 @@ export default {
         name: 'Amazing Race2',
         photoURL: '/static/images/Non_tech/Basketball.svg',
         eventid: 1234
-      }], [ {
+      }, {
         name: 'Amazing Race1',
         photoURL: '/static/images/Non_tech/CollegeRadio.svg',
         eventid: 1234
@@ -65,17 +65,19 @@ export default {
         name: 'Amazing Race2',
         photoURL: '/static/images/Non_tech/AmazingRace.svg',
         eventid: 1234
-      }]],
+      }],
       selected: {
         event: null,
         value: null
-      }
+      },
+      noele: null
     }
   },
   methods: {
     setSelected: function (event, value) {
+      console.log(value)
         this.selected.event = event
-        this.selected.value = value
+        this.selected.value = parseInt(value / this.noele)
     },
     closeSelected: function () {
       this.selected = {
@@ -85,6 +87,7 @@ export default {
     }
   },
   mounted () {
+    this.noele = parseInt(this.$refs.row.clientWidth / 256)
     // TODO code to fetch event details from firestore on mounting app
    }
 }
@@ -92,6 +95,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
 $content: 'VIEW DETAILS';
+.container {
+  margin-top:3rem;
+}
+.con {
+	display: contents;
+}
+
 h1, h2 {
   font-weight: normal;
   font-family:'Samarkan Normal';
@@ -105,6 +115,7 @@ h2 {
 
 .thumb {
   height:16rem;
+  width: 16rem;
   background-size: 101%;
   filter: grayscale(100%);
 }
@@ -123,6 +134,8 @@ h2 {
 
 .detail {
   padding-top: 1rem;
+  display: block;
+  margin-left: 4rem;
 }
 
 .v-transition {
