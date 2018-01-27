@@ -9,8 +9,8 @@
         <div class="thumb overlay red" ref="item" :style="{ 'background-image': 'url(' + item.photoURL + ')' }"  @click="setSelected(item, k)">
         </div>
         <div class="detail col-md-12" v-if="selected.value === (k-noele+1)/noele" transition>
-          <div class="row col-md-1 offset-md-11">
-          <i class="material-icons" v-on:click="closeSelected">close</i>
+          <div class="row offset-md-11">
+          <i class="material-icons" style="color:white;" v-on:click="closeSelected">close</i>
           </div>
           <div class="row">
           <div class="col-md-6">
@@ -114,8 +114,10 @@ h2 {
 }
 
 .thumb {
-  height:16rem;
-  width: 16rem;
+  height:15rem;
+  width: 15rem;
+  border-radius: 1rem;
+  margin:1rem;
   background-size: 101%;
   filter: grayscale(100%);
 }
@@ -135,7 +137,7 @@ h2 {
 .detail {
   padding-top: 1rem;
   display: block;
-  margin-left: 4rem;
+  padding-right: 5rem;
 }
 
 .v-transition {
