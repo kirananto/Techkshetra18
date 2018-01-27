@@ -12,12 +12,13 @@
           <div class="row">
           <i class="material-icons offset-md-11 offset-sm-11" style="color:white;" v-on:click="closeSelected">close</i>
           </div>
-          <div class="row">
+          <div class="row bgcover">
           <div class="col-md-6">
             <img :src="selected.event.photoURL" class="photo">
           </div>
           <div class="col-md-6">
               <h2>{{selected.event.name}}</h2>
+              <p class="desc" >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
           </div>
           </div>
         </div>
@@ -186,6 +187,17 @@ h2 {
     margin-left: 2rem;
   }
 
+}
+.desc
+{
+  color: white;
+  @media screen and (min-width: 421px) {
+    padding: 3rem 3rem 3rem 3rem;
+  }
+
+}
+.bgcover{
+  background-color:#080808;
 }
 
 
