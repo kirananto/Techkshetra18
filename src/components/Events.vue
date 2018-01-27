@@ -159,15 +159,21 @@ h2 {
     outline: none;
     z-index: 1; 
     opacity:0;
+    -webkit-transition: .5s ease;
+    transition: .5s ease;
 }
 
 .overlay:hover:after  {
   opacity:1;
+  -webkit-transition: .5s ease;
+    transition: .5s ease;
 }
 
 .red:after, .red:before {
   background-color: red;
   opacity: 0;
+  -webkit-transition: .5s ease;
+    transition: .5s ease;
 }
 
 .photo {
