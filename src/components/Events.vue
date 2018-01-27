@@ -15,10 +15,10 @@
           </div>
           <div class="row">
           <div class="col-md-6">
-            dFD
+            <img :src="selected.event.photoURL" class="photo">
           </div>
           <div class="col-md-6">
-              <h2>Item s {{selected.event.name}} details</h2>
+              <h2>{{selected.event.name}}</h2>
           </div>
           </div>
         </div>
@@ -34,36 +34,36 @@ export default {
     return {
       events: [[
       {
-        name: 'Amazing Race1',
-        photoURL: '/static/images/1.jpg',
+        name: '3\'s Football',
+        photoURL: '/static/images/Non_tech/3sFootball.svg',
         eventid: 1234
       }, {
         name: 'Amazing Race2',
-        photoURL: '/static/images/2.jpg',
+        photoURL: '/static/images/Non_tech/22B.svg',
         eventid: 1234
       }, {
         name: 'Amazing Race1',
-        photoURL: '/static/images/3.jpg',
+        photoURL: '/static/images/Non_tech/AmazingRace.svg',
         eventid: 1234
       }, {
         name: 'Amazing Race2',
-        photoURL: '/static/images/1.jpg',
+        photoURL: '/static/images/Non_tech/Basketball.svg',
         eventid: 1234
       }], [ {
         name: 'Amazing Race1',
-        photoURL: '/static/images/2.jpg',
+        photoURL: '/static/images/Non_tech/CollegeRadio.svg',
         eventid: 1234
       }, {
         name: 'Amazing Race2',
-        photoURL: '/static/images/3.jpg',
+        photoURL: '/static/images/Non_tech/AmazingRace.svg',
         eventid: 1234
       }, {
         name: 'Amazing Race1',
-        photoURL: '/static/images/1.jpg',
+        photoURL: '/static/images/Non_tech/AmazingRace.svg',
         eventid: 1234
       }, {
         name: 'Amazing Race2',
-        photoURL: '/static/images/2.jpg',
+        photoURL: '/static/images/Non_tech/AmazingRace.svg',
         eventid: 1234
       }]],
       selected: {
@@ -90,9 +90,8 @@ export default {
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
-
+<style lang="scss">
+$content: 'VIEW DETAILS';
 h1, h2 {
   font-weight: normal;
   font-family:'Samarkan Normal';
@@ -101,35 +100,21 @@ h1, h2 {
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 4rem;
 }
 
-.hello {
-  position: absolute;
-  top: 50%;
-  right: 50%;
-  transform: translate(50%,-50%);
-  width: 100%;
-  height: 100%;
-
-} 
-/* TEST */
 .thumb {
-  
-  height:15rem;
-  background-size: cover;
+  height:16rem;
+  background-size: 101%;
   filter: grayscale(100%);
 }
 
 .thumb:hover {
   filter: grayscale(0%);
-  background-size: cover;
 }
 
-.col-md-3,thumb{
-
+.col-md-3, .thumb {
   transition: .5s ease;
-  background-color: #008CBA;
 }
 
 .container:hover{
@@ -137,7 +122,6 @@ h2 {
 }
 
 .detail {
-  background: #666;
   padding-top: 1rem;
 }
 
@@ -146,32 +130,6 @@ h2 {
   height: 500px;
   opacity: 1;
 }
-
-.v-enter, .v-leave {
-  height: 0;
-  opacity: 0;
-}
-
-/* OVERLAY */
-/* .center-text 
-{
-   position: absolute;
-   color:white;
-   font-weight: 900;
-   font-size: 15px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    padding: 5px 5px;
-    border: 3px solid white;
-    display: inline-block;
-    margin: 30px 0 0;
-    outline: none;
-    z-index: 1;   
-} */
-
 
     
 .center-text:hover + .overlay {
@@ -185,7 +143,7 @@ h2 {
 
 .overlay:after {
   position: absolute;
-  content:"Hello";
+  content:$content;
   color:white;
    font-weight: 900;
    font-size: 15px;
@@ -196,7 +154,6 @@ h2 {
     letter-spacing: 2px;
     padding: 5px 5px;
     border: 3px solid #c13a47;
-    /* border-radius: 10px; */
     display: inline-block;
     margin: 30px 0 0;
     outline: none;
@@ -210,6 +167,12 @@ h2 {
 
 .red:after, .red:before {
   background-color: red;
+  opacity: 0;
 }
 
+.photo {
+  margin: 1rem;
+  margin-bottom: 3rem;
+  border-radius: 1rem;
+}
 </style>
