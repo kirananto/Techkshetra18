@@ -74,7 +74,13 @@ export default {
 $content: 'VIEW DETAILS';
 .container {
   margin-top:3rem;
+  
+  @media screen  and (max-width: 420px ){
+    margin-right: 20%;
+  margin-left: 3.2rem !important;
+  }
 }
+
 .con {
 	display: contents;
 }
@@ -173,4 +179,14 @@ h2 {
     display:none;
   }
 }
+.hello{
+
+  height: auto;
+  @media screen and (max-width: 420px) {
+    margin-left: 2rem;
+  }
+
+}
+
+
 </style>
