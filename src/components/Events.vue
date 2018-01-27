@@ -214,9 +214,13 @@ h2 {
     display: inline-block;
     margin: -25px 0 0 0;
     outline: none;
+    -webkit-transition: .5s ease;
+    transition: .5s ease;
     &:hover {
     color: black !important;
     background-color: white !important;
+    -webkit-transition: .5s ease;
+    transition: .5s ease;
     }
     @media screen and (max-width: 420px){
       margin-top: 10px !important;
