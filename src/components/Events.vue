@@ -199,7 +199,7 @@ h2 {
 }
 .bgcover{
   background-color:#080808;
-  
+  padding-bottom: 2rem;
 }
 
 .details-btn{
@@ -213,8 +213,11 @@ h2 {
     padding: 10px 20px;
     border: 3px solid white;
     display: inline-block;
-   margin: -25px 0 0 0;
+    margin: -25px 0 0 0;
     outline: none;
+    @media screen and (max-width: 420px){
+      margin-top: 10px !important;
+    }
 }
 
 
