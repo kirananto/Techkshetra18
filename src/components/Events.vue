@@ -69,13 +69,17 @@ export default {
       }
     },
     register: function () {
-       var provider = new firebase.auth.GoogleAuthProvider()
-        firebase.auth().signInWithPopup(provider)
-        .then((result) => {
-          // on auth
-        }).catch((error) => {
-          console.log(error.message)
-        })
+      if(firebase.auth().currentUser){
+        this.$router.replace(`/registration/${this.selected.event.id}`)
+      } else {
+        var provider = new firebase.auth.GoogleAuthProvider()
+          firebase.auth().signInWithPopup(provider)
+          .then((result) => {
+            this.$router.replace(`/registration/${this.selected.event.id}`)
+          }).catch((error) => {
+            console.log(error.message)
+          })
+      }
     }
   },
   computed: {

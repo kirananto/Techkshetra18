@@ -5,6 +5,7 @@ import ContactUs from '@/components/ContactUs'
 import Events from '@/components/Events'
 import Autoshow from '@/components/Autoshow'
 import Workshops from '@/components/Workshops'
+import Registration from '@/components/Registration'
 
 
 const routes = [
@@ -28,6 +29,10 @@ const routes = [
   },
   { path: '/workshops',
     component: Workshops
+  },
+  { path: '/registration/:id',
+    component: Registration,
+    props: true
   }]
 
 export default routes
