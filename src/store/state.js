@@ -6,5 +6,6 @@ export default {
         projectId: 'projectm1-94d36',
         storageBucket: 'projectm1-94d36.appspot.com',
         messagingSenderId: '200497519300'
-    }  
+    },
+    events: []  
 }

@@ -1,3 +1,4 @@
 export default {
-    getConfig: state => state.config
+    getConfig: state => state.config,
+    getEvents: state => state.events
 }

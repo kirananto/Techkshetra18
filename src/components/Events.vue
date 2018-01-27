@@ -4,11 +4,11 @@
      <div class="container">
       <div class="row"  ref="row">
       <!-- <div class="row offset-md-2 container" v-for="(event,key) in events" :key="key"> -->
-        <div class="con" v-for="(item,k) in events" :key="k">
+        <div class="con" v-for="(item,k) in getEvents" :key="k">
         
         <div class="thumb overlay red" ref="item" :style="{ 'background-image': 'url(' + item.photoURL + ')' }"  @click="setSelected(item, k)">
         </div>
-        <div class="detail col-md-12" v-if="selected.value === (k-noele+1)/noele" transition>
+        <div class="detail col-md-12" v-if="shouldDisplay(k)" transition>
           <div class="row">
           <i class="material-icons offset-md-11 offset-sm-11" style="color:white;" v-on:click="closeSelected">close</i>
           </div>
@@ -30,8 +30,7 @@
 </template>
 
 <script>
-import firebase from 'firebase'
-require('firebase/firestore')
+import { mapGetters } from 'vuex'
 export default {
   name: 'Events',
   data () {
@@ -39,7 +38,8 @@ export default {
       events: [],
       selected: {
         event: null,
-        value: null
+        value: null,
+        key: null
       },
       noele: null
     }
@@ -47,6 +47,7 @@ export default {
   methods: {
     setSelected: function (event, value) {
       console.log(value)
+        this.selected.key = value 
         this.selected.event = event
         this.selected.value = parseInt(value / this.noele)
     },
@@ -55,19 +56,23 @@ export default {
         event: null,
         value: null
       }
+    },
+    shouldDisplay: function (key) {
+      if (this.selected.value === (key - this.noele + 1) / this.noele) {
+        return true
+      } else if ((this.selected.key > this.getEvents.length - (this.noele - 1)) && (key === this.getEvents.length - 1)) {
+        return true
+      } else {
+        return false
+      }
     }
   },
+  computed: {
+    ...mapGetters(['getEvents'])
+  },
   mounted () {
+    console.log(this.getEvents.length - 1)
     this.noele = parseInt(this.$refs.row.clientWidth / 256)
-    // TODO code to fetch event details from firestore on mounting app
-    var eventRef = firebase.database().ref('events/')
-    eventRef.once('value').then(snapShot => {
-      snapShot.forEach(element => {
-        this.events.push(element.val())
-      })
-    }).catch(err => {
-      console.log(err)
-    })
   }
 }
 </script>

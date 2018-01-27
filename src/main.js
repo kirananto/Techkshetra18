@@ -8,8 +8,10 @@ import store from './store'
 import AppView from './App.vue'
 import VueParticles from 'vue-particles'
 import firebase from 'firebase'
+require('firebase/firestore')
 Vue.config.productionTip = false
 
+let app
 Vue.use(VueParticles)
 Vue.use(VueRouter)
 
@@ -24,14 +26,31 @@ var router = new VueRouter({
   }
 })
 
+router.beforeEach((to, from, next) => {
+  if (store.getters.getEvents[0] === undefined) {
+    firebase.firestore().collection('events').get().then(querySnapshot => {
+      querySnapshot.forEach(doc => {
+        store.commit('PUSH_EVENT', doc.data())
+      })
+    })
+    next()
+  } else {
+    next()
+  }
+})
 /* eslint-disable no-new */
 sync(store, router)
 
 // Start out app!
 // eslint-disable-next-line no-new
-new Vue({
-  el: '#root',
-  router,
-  store,
-  render: h => h(AppView)
-})
+firebase.auth().onAuthStateChanged(
+  function (user) {
+    if (!app) {
+      app = new Vue({
+        el: '#root',
+        router,
+        store,
+        render: h => h(AppView)
+      })
+    }
+  })
