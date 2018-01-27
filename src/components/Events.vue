@@ -9,8 +9,8 @@
         <div class="thumb overlay red" ref="item" :style="{ 'background-image': 'url(' + item.photoURL + ')' }"  @click="setSelected(item, k)">
         </div>
         <div class="detail col-md-12" v-if="selected.value === (k-noele+1)/noele" transition>
-          <div class="row offset-md-11">
-          <i class="material-icons" style="color:white;" v-on:click="closeSelected">close</i>
+          <div class="row">
+          <i class="material-icons offset-md-11 offset-sm-11" style="color:white;" v-on:click="closeSelected">close</i>
           </div>
           <div class="row">
           <div class="col-md-6">
@@ -28,44 +28,13 @@
 </template>
 
 <script>
+import firebase from 'firebase'
+require('firebase/firestore')
 export default {
   name: 'Events',
   data () {
     return {
-      events: [
-      {
-        name: '3\'s Football',
-        photoURL: '/static/images/Non_tech/3sFootball.svg',
-        eventid: 1234
-      }, {
-        name: 'Amazing Race2',
-        photoURL: '/static/images/Non_tech/22B.svg',
-        eventid: 1234
-      }, {
-        name: 'Amazing Race1',
-        photoURL: '/static/images/Non_tech/AmazingRace.svg',
-        eventid: 1234
-      }, {
-        name: 'Amazing Race2',
-        photoURL: '/static/images/Non_tech/Basketball.svg',
-        eventid: 1234
-      }, {
-        name: 'Amazing Race1',
-        photoURL: '/static/images/Non_tech/CollegeRadio.svg',
-        eventid: 1234
-      }, {
-        name: 'Amazing Race2',
-        photoURL: '/static/images/Non_tech/AmazingRace.svg',
-        eventid: 1234
-      }, {
-        name: 'Amazing Race1',
-        photoURL: '/static/images/Non_tech/AmazingRace.svg',
-        eventid: 1234
-      }, {
-        name: 'Amazing Race2',
-        photoURL: '/static/images/Non_tech/AmazingRace.svg',
-        eventid: 1234
-      }],
+      events: [],
       selected: {
         event: null,
         value: null
@@ -89,7 +58,15 @@ export default {
   mounted () {
     this.noele = parseInt(this.$refs.row.clientWidth / 256)
     // TODO code to fetch event details from firestore on mounting app
-   }
+    var eventRef = firebase.database().ref('events/')
+    eventRef.once('value').then(snapShot => {
+      snapShot.forEach(element => {
+        this.events.push(element.val())
+      })
+    }).catch(err => {
+      console.log(err)
+    })
+  }
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -114,11 +91,11 @@ h2 {
 }
 
 .thumb {
-  height:15rem;
   width: 15rem;
+  height: 15rem;
   border-radius: 1rem;
   margin:1rem;
-  background-size: 101%;
+  background-size: cover;
   filter: grayscale(100%);
 }
 
@@ -187,7 +164,13 @@ h2 {
 
 .photo {
   margin: 1rem;
+  width: 100%;
+  heigth:auto;
   margin-bottom: 3rem;
   border-radius: 1rem;
+
+  @media screen and (max-width: 500px) {
+    display:none;
+  }
 }
 </style>

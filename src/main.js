@@ -7,11 +7,13 @@ import { sync } from 'vuex-router-sync'
 import store from './store'
 import AppView from './App.vue'
 import VueParticles from 'vue-particles'
-
+import firebase from 'firebase'
 Vue.config.productionTip = false
 
 Vue.use(VueParticles)
 Vue.use(VueRouter)
+
+firebase.initializeApp(store.getters.getConfig)
 
 var router = new VueRouter({
   routes,

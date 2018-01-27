@@ -1,1 +1,3 @@
-export default {}
+export default {
+    getConfig: state => state.config
+}
