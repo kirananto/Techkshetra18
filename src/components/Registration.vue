@@ -31,6 +31,7 @@
 
 <script>
 import firebase from 'firebase'
+import swal from 'sweetalert'
 require('firebase/firestore')
 export default {
   name: 'Registration',
@@ -45,7 +46,18 @@ export default {
       }
     }
   },
-  computed: {
+  methods: {
+    onSubmit: function () {
+      firebase.firestore().doc(`registration/${this.currentUser.uid}/registered/${this.id.id}`).set({
+        uid: this.currentUser.uid,
+        displayName: this.currentUser.displayName,
+        email: this.currentUser.email,
+        college: this.college,
+        mobno: this.mobno
+      }).then(success => {
+        swal('success', 'Registered', 'success')
+      })
+    }
   },
   mounted () {
     this.currentUser = firebase.auth().currentUser
