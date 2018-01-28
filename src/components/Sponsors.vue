@@ -8,7 +8,9 @@
     
     <h2 class="hmain">Title Sponsor</h2>
    
-     <div class="col-4 "><div class="main"><img src="/static/images/temp/1.jpg"></div></div>
+     <div class="col-6 "><div class="main"><img src="/static/images/temp/3.jpg"></div></div>
+     <br>
+     <div class="col-6 "><div class="main"><img src="/static/images/temp/1.jpg"></div></div>
   </div>
   <div class="col"></div>
 </div>
@@ -25,7 +27,7 @@
 </div>
 
 <br>
-   <h2 class="hmain">Level 2 Sponsor</h2>
+   <h2 class="hmain">Level 1 Sponsor</h2>
    <br>
   <div class="row">
  
@@ -34,7 +36,7 @@
   </div>
   <div class="col sub"><img src="/static/images/temp/3.jpg"></div>
 </div><br>
-   <h2 class="hmain">Level 3 Sponsor</h2>
+   <h2 class="hmain">Level 1 Sponsor</h2>
    <br>
   <div class="row">
  
@@ -54,7 +56,7 @@ export default {
   name: 'Sponsors',
   data () {
     return {
-      msg: ''
+      msg: 'Welcome to Your Vue.js App'
     }
   }
 }
@@ -103,6 +105,15 @@ h1, h2 {
   .hmain{
     padding-left: 8rem;
   }
+  /* .card{
+    width: 400px;
+    height: auto;
+  }
 }
-  
+ @media only screen and (max-width:620px){
+    .card{
+    width: 600px;
+    height: auto;
+  } */
+  }
 </style>
