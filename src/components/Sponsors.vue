@@ -1,53 +1,18 @@
 <template>
   <div class="">
     <h1 class="hmain">SPONSORS</h1>
-
-  <div class="row">
-  <div class="col"></div>
-  <div class="col">
-    
-    <h2 class="hmain">Title Sponsor</h2>
-   
-     <div class="col-md-6 "><div class="main"><img src="/static/images/temp/3.jpg"></div></div>
-    <br>
-     <div class="col-md-6 "><div class="main"><img src="/static/images/temp/1.jpg"></div></div>
-  </div>
-  <div class="col"></div>
-</div>
-
-<br>
-   <h2 class="hmain">Level 1 Sponsor</h2>
-   <br>
-  <div class="row">
- 
-  <div class="col sub"><img src="/static/images/temp/1.jpg"></div>
-  <div class="col sub"><div class="main"><img src="/static/images/temp/2.jpg"></div>
-  </div>
-  <div class="col sub"><img src="/static/images/temp/3.jpg"></div>
-</div>
-
-<br>
-   <h2 class="hmain">Level 1 Sponsor</h2>
-   <br>
-  <div class="row">
- 
-  <div class="col sub"><img src="/static/images/temp/1.jpg"></div>
-  <div class="col sub"><div class="main"><img src="/static/images/temp/2.jpg"></div>
-  </div>
-  <div class="col sub"><img src="/static/images/temp/3.jpg"></div>
-</div><br>
-   <h2 class="hmain">Level 1 Sponsor</h2>
-   <br>
-  <div class="row">
- 
-  <div class="col sub"><img src="/static/images/temp/1.jpg"></div>
-  <div class="col sub"><div class="main"><img src="/static/images/temp/2.jpg"></div>
-  </div>
-  <div class="col sub"><img src="/static/images/temp/3.jpg"></div>
-</div>
-
-
-
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h3 class="hmain">Diamond Sponsors</h3>
+          <img src="/static/images/sponsors/BALCO.png" class="col-md-12 ">
+        </div>
+        <div class="col-md-6">
+          <h3 class="hmain">Platinum Sponsors</h3>
+          <img src="/static/images/sponsors/vguard.png" class="col-md-6 ">
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -70,19 +35,13 @@ h1, h2 {
   font-size:5rem;
   color:#D6D0D0;
 }
-.hello {
-  position: absolute;
-  top: 50%;
-  right: 50%;
-  transform: translate(50%,-50%);
-  width: 100%;
-  height: 100%;
+h3 {
+  font-size: 3rem;
+  color:#D6D0D0;
+  font-weight: normal;
+  font-family:'Samarkan Normal';
+}
 
-}
-.main{
-   display: block;
-    margin: 0 auto;
-}
 
  .sub{
 
