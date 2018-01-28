@@ -87,7 +87,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
 h1, h2 {
   font-weight: normal;
   font-family:'Samarkan Normal';
@@ -110,16 +110,23 @@ h1, h2 {
 
 .button-submit {
     border: 3px solid #D6D0D0;
-    background: none;
+    background: black;
     margin: 30px 0 0; 
     z-index: 1; 
     -webkit-text-fill-color: #D6D0D0;
-     text-transform: uppercase;
+    text-transform: uppercase;
     letter-spacing: 2px;
     padding: 5px 5px;
+    &:hover {
+      -webkit-text-fill-color: black;
+      background-color: white !important;
+      -webkit-transition: .5s ease;
+      transition: .5s ease;
+    }
 }
 
 .bottom_circle {
   margin-top: 0rem;
 }
+
 </style>
