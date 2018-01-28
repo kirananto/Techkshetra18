@@ -21,10 +21,30 @@
             <img :src="selected.event.photoURL" class="photo">
           </div>
           <div class="col-md-6">
+            
               <h2>{{selected.event.name}}</h2>
-              <p class="desc" >{{selected.event.details}}</p>
-              <div class="details-btn" @click="register(selected.event)">Register</div>
-          </div>
+            <ul class="nav nav-tabs">
+              <li class="active"><a data-toggle="tab" href="#home">ABOUT</a></li>
+              <li><a data-toggle="tab" href="#menu1">RULES</a></li>
+              <li><a data-toggle="tab" href="#menu2">CONTACT</a></li>
+            </ul>
+
+            <div class="tab-content">
+              <div id="home" class="tab-pane fade in active">
+                <p class="desc" >{{selected.event.details}}</p>
+                <p class="desc" >Registration Fee: Rs.{{selected.event.registrationFee}}</p>
+                <div class="details-btn" @click="register(selected.event)">Register</div>
+              </div>
+              <div id="menu1" class="tab-pane fade">
+                <ul>
+                <li class="rules" v-for="(item,key) in selected.event.eventRules" :key="key">{{item}}</li>
+                </ul>
+              </div>
+              <div id="menu2" class="tab-pane fade">
+                <p>Some content in menu 2.</p>
+              </div>
+            </div>
+            </div>
           </div>
         </div>
         </div>
@@ -122,6 +142,12 @@ $content: 'VIEW DETAILS';
 	display: contents;
 }
 
+.rules {
+  color: white;
+  margin-top:1rem;
+  text-align: left;
+}
+
 h1, h2 {
   font-weight: normal;
   font-family:'Samarkan Normal';
@@ -173,6 +199,14 @@ h2 {
   opacity: 1;
 }
 
+.nav li {
+  margin-left: 5rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+   text-transform: uppercase;
+    letter-spacing: 2px;
+    -webkit-text-fill-color: white;
+}
     
 .center-text:hover + .overlay {
     display: block;
