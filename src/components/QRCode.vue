@@ -2,7 +2,14 @@
   <div class="hello">
     <h1>QR CODE</h1>
     <div class="container" style="margin-top: 4rem;">
-    <img :src="url" class="col-md-6" alt="">
+        <div class="row">
+            <img :src="url" class="col-md-6" alt="">
+            <div class="col-md-6">
+                    <img src="/static/techkshetra_logo.svg" class="col-md-5 heading" alt="">
+                 <h3 class="heading">{{currentUser.displayName}}</h3>
+                 <h6>{{currentUser.email}}</h6>
+            </div>
+        </div>
     </div>
   </div>
 </template>
@@ -14,13 +21,13 @@ export default {
   name: 'QRCode',
   data () {
     return {
-        uid: null,
+        currentUser: null,
         url: null
     }
   },
   mounted () {
       if (firebase.auth().currentUser) {
-        this.uid = firebase.auth().currentUser.uid
+        this.currentUser = firebase.auth().currentUser
         QRCode.toDataURL(firebase.auth().currentUser.uid, { errorCorrectionLevel: 'H' })
             .then(url => {
                 this.url = url
@@ -54,6 +61,17 @@ h1, h2 {
   font-size:5rem;
   color:#D6D0D0;
 }
- 
 
+h3 {
+     text-transform: uppercase;
+    letter-spacing: 2px;
+}
+ 
+.row {
+    background-color: white;
+}
+
+.heading {
+    margin-top: 4rem;
+}
 </style>

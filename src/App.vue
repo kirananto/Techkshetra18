@@ -28,6 +28,7 @@
        @events="events"
        @about="about"
        @contact="contact"
+       @qrcode="qrcode"
   ></fab>
     <router-view/>
   </div>
@@ -75,6 +76,11 @@ export default {
                   name: 'contact',
                   icon: 'contacts',
                   tooltip: 'Contact Us'
+              },
+              {
+                  name: 'qrcode',
+                  icon: 'code',
+                  tooltip: 'QRCode'
               }
           ]
     }
@@ -82,6 +88,9 @@ export default {
   methods: {
       sponsors () {
           this.$router.replace('/sponsors')
+      },
+      qrcode () {
+          this.$router.replace('/qrcode')
       },
       autoshow () {
         this.$router.replace('/autoshow')
