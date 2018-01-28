@@ -1,7 +1,16 @@
 <template>
   <div class="hello">
     <h1>ABOUT US</h1>
+  <center> <div class="col sub"><img src="/static/images/temp/5.jpg"></div></center>
+  <div class="col card">
+    
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
   </div>
+  
+    
+</div>
+
+
 </template>
 
 <script>
@@ -31,5 +40,23 @@ h1, h2 {
   width: 100%;
   height: 100%;
 
+}
+.card{
+  padding: 1.2rem;
+  background-color: black;
+  color: white; 
+}
+ .sub{
+
+    padding-bottom: 2.5rem;
+  }
+
+
+@media only screen and (max-width:420px){
+  
+    .sub{
+    padding-left: 1.8rem;
+    padding-bottom: 1.5rem;
+  }
 }
 </style>
