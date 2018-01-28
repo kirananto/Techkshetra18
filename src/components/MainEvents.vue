@@ -123,11 +123,6 @@ export default {
   mounted () {
     console.log(this.getEvents.length - 1)
     this.noele = parseInt(this.$refs.row.clientWidth / 256)
-    firebase.firestore().collection('registered').where('eventId', '==', 'mazeRunner').get().then(querySnapshot => {
-      querySnapshot.forEach(doc => {
-        console.log(doc.data())
-      })
-    })
   }
 }
 </script>

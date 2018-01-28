@@ -55,7 +55,9 @@ export default {
         college: this.college,
         mobno: this.mobno
       }).then(success => {
-        swal('success', 'Registered', 'success')
+        swal('success', 'Registered', 'success').then(success => {
+          this.$router.replace('/events')
+        })
       })
     }
   },
