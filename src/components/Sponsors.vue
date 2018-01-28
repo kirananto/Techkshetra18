@@ -8,9 +8,9 @@
     
     <h2 class="hmain">Title Sponsor</h2>
    
-     <div class="col-6 "><div class="main"><img src="/static/images/temp/3.jpg"></div></div>
-     <br>
-     <div class="col-6 "><div class="main"><img src="/static/images/temp/1.jpg"></div></div>
+     <div class="col-md-6 "><div class="main"><img src="/static/images/temp/3.jpg"></div></div>
+    <br>
+     <div class="col-md-6 "><div class="main"><img src="/static/images/temp/1.jpg"></div></div>
   </div>
   <div class="col"></div>
 </div>

@@ -1,6 +1,16 @@
 <template>
   <div class="hello">
     <h1>WORKSHOPS</h1>
+
+    <div class="row">
+          <div class="col-md-6 card">
+              xxxxxx
+           </div>
+           <div class="col-md-6 card">
+             xxxxxxxxxxxx
+           </div>
+
+   </div>        
   </div>
 </template>
 

@@ -1,7 +1,25 @@
 <template>
   <div class="hello">
     <h1>CONTACT US</h1>
-  </div>
+<div class="row">
+
+     <div class="col-md-6 mcard card">
+      <div class="google-maps">
+        <iframe  frameborder="0" scrolling="no" marginheight="0" marginwidth="0" align="Center" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=rajagiri+school+of+engineering+%26+Technology&amp;sll=9.993661,76.359251&amp;sspn=0.00858,0.021973&amp;ie=UTF8&amp;hq=rajagiri+school+of+engineering+%26+Technology&amp;hnear=&amp;ll=9.993661,76.359272&amp;spn=0.020287,0.027466&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
+    </div>
+</div>
+<br>
+
+ <div class="col-md-6 card">
+   <br>
+   <p>Rajagiri School of Engineering & Technology</p><p>Rajagiri School of Engineering & Technology</p><p>Rajagiri School of Engineering & Technology</p><p>Rajagiri School of Engineering & Technology</p><p>Rajagiri School of Engineering & Technology</p>
+  <p>Rajagiri School of Engineering & Technology</p>
+<p>Rajagiri Valley, Kakkanad,</p>
+<p>Kochi 682 039 Kerala INDIA</p>
+<p>Tel: +91 484 2660999</p>
+<p>Fax: +91 484 2426241</p>
+</div></div>
+  </div></div>
 </template>
 
 <script>
@@ -32,4 +50,29 @@ h1, h2 {
   height: 100%;
 
 }
+.card{
+  padding: 1.2rem;
+  background-color: black;
+  color: white; 
+}
+@media only screen and (min-width:421px)
+
+{
+  .mcard{
+    /* padding: 50px; */
+  }
+}
+.google-maps {
+        position: relative;
+        padding-bottom: 75%; // This is the aspect ratio
+        height: 0;
+        overflow: hidden;
+    }
+    .google-maps iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+    }
 </style>

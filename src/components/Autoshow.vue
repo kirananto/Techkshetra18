@@ -1,6 +1,18 @@
 <template>
   <div class="hello">
-    <h1>AUTO SHOW</h1>
+     <h1>AUTO SHOW</h1>
+  <center> <div class="col sub"><img src="/static/images/temp/5.jpg"></div></center>
+  <div class="col card">
+      <p>Techkshetra, the one-day technical fest, features a variety of technical contests, designed to test technical knowledge and aptitude to the hilt. A crowd-puller with college students across the state, the fest is held every alternate year.</p>
+      <p>Techkshetra, the one-day technical fest, features a variety of technical contests, designed to test technical knowledge and aptitude to the hilt. A crowd-puller with college students across the state, the fest is held every alternate year.</p>
+      <p>Techkshetra, the one-day technical fest, features a variety of technical contests, designed to test technical knowledge and aptitude to the hilt. A crowd-puller with college students across the state, the fest is held every alternate year.</p>
+      <p>Techkshetra, the one-day technical fest, features a variety of technical contests, designed to test technical knowledge and aptitude to the hilt. A crowd-puller with college students across the state, the fest is held every alternate year.</p>
+      <p>Techkshetra, the one-day technical fest, features a variety of technical contests, designed to test technical knowledge and aptitude to the hilt. A crowd-puller with college students across the state, the fest is held every alternate year.</p>
+      <p>Techkshetra, the one-day technical fest, features a variety of technical contests, designed to test technical knowledge and aptitude to the hilt. A crowd-puller with college students across the state, the fest is held every alternate year.</p>
+      <p>Techkshetra, the one-day technical fest, features a variety of technical contests, designed to test technical knowledge and aptitude to the hilt. A crowd-puller with college students across the state, the fest is held every alternate year.</p>
+      <p>Techkshetra, the one-day technical fest, features a variety of technical contests, designed to test technical knowledge and aptitude to the hilt. A crowd-puller with college students across the state, the fest is held every alternate year.</p>
+      <p>Techkshetra, the one-day technical fest, features a variety of technical contests, designed to test technical knowledge and aptitude to the hilt. A crowd-puller with college students across the state, the fest is held every alternate year.</p>
+      </div>
   </div>
 </template>
 
@@ -31,5 +43,10 @@ h1, h2 {
   width: 100%;
   height: 100%;
 
+}
+.card{
+  padding: 1.2rem;
+  background-color: black;
+  color: white; 
 }
 </style>
