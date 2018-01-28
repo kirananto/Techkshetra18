@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>EVENTS</h1>
     <!-- modalbegins -->
-    <sweet-modal modal-theme="dark" overlay-theme="dark" ref="modal">
+    <sweet-modal modal-theme="dark" blocking enable-mobile-fullscreen width="65%" overlay-theme="dark" ref="modal">
       <registration v-if="registerEvent" :id="registerEvent"></registration>
     </sweet-modal>
     <!-- modal ends -->
