@@ -8,7 +8,7 @@
     <!-- modal ends -->
      <div class="container">
       <div class="row"  ref="row">
-        <div class="con" v-for="(item,k) in getEvents" :key="k">
+        <div class="con" v-for="(item,k) in events" :key="k">
         
         <div class="thumb overlay red" ref="item" :style="{ 'background-image': 'url(' + item.photoURL + ')' }"  @click="setSelected(item, k)">
         </div>
@@ -64,6 +64,7 @@ import { SweetModal, SweetModalTab } from 'sweet-modal-vue'
 require('firebase/firestore')
 export default {
   name: 'Events',
+  props: ['branch'],
   components: {
     SweetModal,
 		SweetModalTab,
@@ -96,7 +97,7 @@ export default {
     shouldDisplay: function (key) {
       if (this.selected.value === (key - this.noele + 1) / this.noele) {
         return true
-      } else if ((this.selected.key > this.getEvents.length - (this.noele - 1)) && (key === this.getEvents.length - 1)) {
+      } else if ((this.selected.key > this.events.length - (this.noele - 1)) && (key === this.events.length - 1)) {
         return true
       } else {
         return false
@@ -118,16 +119,14 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getEvents'])
+    ...mapGetters(['getEvents']),
+    events: function () {
+      return this.getEvents.filter(event => event.branch === this.branch)
+    }
   },
   mounted () {
-    console.log(this.getEvents.length - 1)
+    console.log(this.events.length - 1)
     this.noele = parseInt(this.$refs.row.clientWidth / 256)
-    firebase.firestore().collection('registered').where('eventId', '==', 'mazeRunner').get().then(querySnapshot => {
-      querySnapshot.forEach(doc => {
-        console.log(doc.data())
-      })
-    })
   }
 }
 </script>
