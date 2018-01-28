@@ -2,12 +2,10 @@
   <div class="hello">
     <h1>EVENTS</h1>
      <div class="container">
-      <div class="row"  ref="row">
-        <div class="con" v-for="(item,k) in events" :key="k">
+      <div class="row">
         
-        <router-link :to="'/event/'+ item.branch" :branch="item.branch" class="thumb" ref="item" :style="{ 'background-image': 'url(/static/images/branches/' + item.photoURL + '.svg)' }">
+        <router-link :to="'/event/'+ item.branch" :branch="item.branch"   v-for="(item,k) in events" :key="k" class="thumb" ref="item" :style="{ 'background-image': 'url(/static/images/branches/' + item.photoURL + '.svg)' }">
         </router-link>
-        </div>
      </div>
      
   </div>

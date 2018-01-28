@@ -6,12 +6,12 @@
     <h3 v-if="key !== 0">Participant {{key}} Details</h3>
     <tr>
       <td class="userdetails_text">Name:</td>
-      <td><input required type="text" v-model="participants[key].displayName" class="form-control" readonly name="fname" value=""></td>
+      <td><input required type="text" v-model="participants[key].displayName" class="form-control"  name="fname" value=""></td>
     </tr>
 
     <tr>
       <td class="userdetails_text">Email:</td>
-      <td><input required type="text" v-model="participants[key].email" class="form-control" name="email" readonly value="" ></td>
+      <td><input required type="text" v-model="participants[key].email" class="form-control" name="email"  value="" ></td>
     </tr>
 
     <tr>
@@ -39,7 +39,8 @@
 
 <script>
 import firebase from 'firebase'
-// import swal from 'sweetalert'
+import swal from 'sweetalert'
+import QRCode from 'qrcode'
 require('firebase/firestore')
 export default {
   name: 'Registration',
@@ -52,22 +53,24 @@ export default {
         mobno: null,
         college: null,
         email: null
-      }]
+      }],
+      qrcode: null
     }
   },
   methods: {
     onSubmit: function () {
-      // firebase.firestore().doc(`registration/${this.currentUser.uid}/registered/${this.id.id}`).set({
-      //   uid: this.currentUser.uid,
-      //   displayName: this.currentUser.displayName,
-      //   email: this.currentUser.email,
-      //   college: this.college,
-      //   mobno: this.mobno
-      // }).then(success => {
-      //   swal('success', 'Registered', 'success').then(success => {
-      //     this.$router.replace('/events')
-      //   })
-      // })
+      firebase.firestore().doc(`registration/${this.currentUser.uid}/registered/${this.id.id}`).set({
+        uid: this.currentUser.uid,
+        participants: this.participants
+      }).then(success => {
+        swal({
+          title: 'Success',
+          icon: this.qrcode,
+          text: 'Please screenshot this qrcode for registration'
+        }).then(success => {
+          this.$router.replace('/events')
+        })
+      })
     },
     addElement: function () {
       if (this.participants.length < 4) {
@@ -82,6 +85,13 @@ export default {
   },
   mounted () {
     this.currentUser = firebase.auth().currentUser
+    QRCode.toDataURL(firebase.auth().currentUser.uid, { errorCorrectionLevel: 'H' })
+            .then(url => {
+                this.qrcode = url
+            })
+            .catch(err => {
+                console.error(err)
+            })
   }
 }
 </script>
