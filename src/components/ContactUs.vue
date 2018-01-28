@@ -5,14 +5,14 @@
 
      <div class="col-md-6 mcard card">
       <div class="google-maps">
-        <iframe  frameborder="0" scrolling="no" marginheight="0" marginwidth="0" align="Center" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=rajagiri+school+of+engineering+%26+Technology&amp;sll=9.993661,76.359251&amp;sspn=0.00858,0.021973&amp;ie=UTF8&amp;hq=rajagiri+school+of+engineering+%26+Technology&amp;hnear=&amp;ll=9.993661,76.359272&amp;spn=0.020287,0.027466&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
+        <iframe width="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" align="Center" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=rajagiri+school+of+engineering+%26+Technology&amp;sll=9.993661,76.359251&amp;sspn=0.00858,0.021973&amp;ie=UTF8&amp;hq=rajagiri+school+of+engineering+%26+Technology&amp;hnear=&amp;ll=9.993661,76.359272&amp;spn=0.020287,0.027466&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
     </div>
 </div>
 <br>
 
  <div class="col-md-6 card">
    <br>
-   <p>Rajagiri School of Engineering & Technology</p><p>Rajagiri School of Engineering & Technology</p><p>Rajagiri School of Engineering & Technology</p><p>Rajagiri School of Engineering & Technology</p><p>Rajagiri School of Engineering & Technology</p>
+   <p>Rajagiri School of Engineering & Technology</p><p>Rajagiri School of Engineering & Technology</p><p>Rajagiri School of Engineering & Technology</p><p>Rajagiri School of Engineering & Technology</p>
   <p>Rajagiri School of Engineering & Technology</p>
 <p>Rajagiri Valley, Kakkanad,</p>
 <p>Kochi 682 039 Kerala INDIA</p>
@@ -27,7 +27,7 @@ export default {
   name: 'Contactus',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: ''
     }
   }
 }
