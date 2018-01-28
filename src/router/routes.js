@@ -6,6 +6,7 @@ import MainEvents from '@/components/MainEvents'
 import Events from '@/components/Events'
 import Autoshow from '@/components/Autoshow'
 import Workshops from '@/components/Workshops'
+import QRCode from '@/components/QRCode'
 
 
 const routes = [
@@ -33,6 +34,9 @@ const routes = [
   { path: '/event/:branch',
     component: Events,
     props: true
+  },
+  { path: '/qrcode',
+    component: QRCode
   }]
 
 export default routes
