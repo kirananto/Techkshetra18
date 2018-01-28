@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>EVENTS</h1>
     <!-- modalbegins -->
-    <sweet-modal modal-theme="dark" blocking enable-mobile-fullscreen width="65%" overlay-theme="dark" ref="modal">
+    <sweet-modal modal-theme="dark" blocking enable-mobile-fullscreen overlay-theme="dark" ref="modal">
       <registration v-if="registerEvent" :id="registerEvent"></registration>
     </sweet-modal>
     <!-- modal ends -->
@@ -23,14 +23,14 @@
           <div class="col-md-6">
             
               <h2>{{selected.event.name}}</h2>
-            <ul class="nav nav-tabs">
-              <li class="active"><a data-toggle="tab" href="#home">ABOUT</a></li>
-              <li><a data-toggle="tab" href="#menu1">RULES</a></li>
-              <li><a data-toggle="tab" href="#menu2">CONTACT</a></li>
+            <ul class="nav nav-tabs col-md-12 col-sm-12">
+              <li class="active col-md-4  col-4"><a data-toggle="tab" href="#about">ABOUT</a></li>
+              <li class="col-md-4 col-4"><a data-toggle="tab" href="#menu1">RULES</a></li>
+              <li class="col-md-4  col-4"><a data-toggle="tab" href="#menu2">CONTACT</a></li>
             </ul>
 
             <div class="tab-content">
-              <div id="home" class="tab-pane fade in active">
+              <div id="about" class="tab-pane fade in active">
                 <p class="desc" >{{selected.event.details}}</p>
                 <p class="desc" >Registration Fee: Rs.{{selected.event.registrationFee}}</p>
                 <div class="details-btn" @click="register(selected.event)">Register</div>
@@ -84,6 +84,7 @@ export default {
         this.selected.key = value 
         this.selected.event = event
         this.selected.value = parseInt(value / this.noele)
+        window.location.replace('#about')
     },
     closeSelected: function () {
       this.selected = {
@@ -104,13 +105,11 @@ export default {
       if (firebase.auth().currentUser) {
         this.registerEvent = this.selected.event
         this.$refs.modal.open() 
-        // this.$router.replace(`/registration/${this.selected.event.id}`)
       } else {
         var provider = new firebase.auth.GoogleAuthProvider()
           firebase.auth().signInWithPopup(provider)
           .then((result) => {
             this.$refs.modal.open() 
-            // this.$router.replace(`/registration/${this.selected.event.id}`)
           }).catch((error) => {
             console.log(error.message)
           })
@@ -200,12 +199,10 @@ h2 {
 }
 
 .nav li {
-  margin-left: 5rem;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
    text-transform: uppercase;
     letter-spacing: 2px;
     -webkit-text-fill-color: white;
+    margin-bottom: 1rem;
 }
     
 .center-text:hover + .overlay {
