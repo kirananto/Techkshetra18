@@ -2,24 +2,32 @@
   <div class="hello">
     <h1 v-if="id">{{id.name}} Registration</h1>
     <form v-on:submit.prevent="onSubmit">
-<table class="table table-hover">
-  <tr>
-    <td class="userdetails_text">Name:</td>
-    <td><input required type="text" v-model="currentUser.displayName" class="form-control" readonly name="fname" value=""></td>
-  </tr>
+  <table class="table table-hover" v-for="(item,key) in participants" :key="key">
+    <h3 v-if="key !== 0">Participant {{key}} Details</h3>
+    <tr>
+      <td class="userdetails_text">Name:</td>
+      <td><input required type="text" v-model="participants[key].displayName" class="form-control" readonly name="fname" value=""></td>
+    </tr>
 
-  <tr>
-    <td class="userdetails_text">Email:</td>
-    <td><input required type="text" v-model="currentUser.email" class="form-control" name="email" readonly value="" ></td>
-  </tr>
+    <tr>
+      <td class="userdetails_text">Email:</td>
+      <td><input required type="text" v-model="participants[key].email" class="form-control" name="email" readonly value="" ></td>
+    </tr>
 
-  <tr>
-    <td required class="userdetails_text">Mobile No:</td><td><input type="number" required v-model="mobno" class="form-control" name="mobno"></td>
-  </tr>
+    <tr>
+      <td required class="userdetails_text">Mobile No:</td><td><input type="number" required v-model="participants[key].mobno" class="form-control" name="mobno"></td>
+    </tr>
 
-      <tr>
-    <td class="userdetails_text">College:</td>
-    <td><input required type="text" v-model="college" class="form-control" name="email"  value="" ></td>
+        <tr>
+      <td class="userdetails_text">College:</td>
+      <td><input required type="text" v-model="participants[key].college" class="form-control" name="email"  value="" ></td>
+    </tr>
+  </table>
+  <table class="table table-hover bottom_circle">
+  <tr>
+    <td></td><td v-on:click="addElement">
+ <i class="material-icons offset-md-11 offset-11" >add_circle_outline</i>
+  </td>
   </tr>
     <tr>
     <td></td>
@@ -31,34 +39,45 @@
 
 <script>
 import firebase from 'firebase'
-import swal from 'sweetalert'
+// import swal from 'sweetalert'
 require('firebase/firestore')
 export default {
   name: 'Registration',
   props: ['id'],
   data () {
     return {
-      mobno: null,
-      college: null,
-      currentUser: {
+      currentUser: null,
+      participants: [{
         displayName: null,
+        mobno: null,
+        college: null,
         email: null
-      }
+      }]
     }
   },
   methods: {
     onSubmit: function () {
-      firebase.firestore().doc(`registration/${this.currentUser.uid}/registered/${this.id.id}`).set({
-        uid: this.currentUser.uid,
-        displayName: this.currentUser.displayName,
-        email: this.currentUser.email,
-        college: this.college,
-        mobno: this.mobno
-      }).then(success => {
-        swal('success', 'Registered', 'success').then(success => {
-          this.$router.replace('/events')
-        })
+      // firebase.firestore().doc(`registration/${this.currentUser.uid}/registered/${this.id.id}`).set({
+      //   uid: this.currentUser.uid,
+      //   displayName: this.currentUser.displayName,
+      //   email: this.currentUser.email,
+      //   college: this.college,
+      //   mobno: this.mobno
+      // }).then(success => {
+      //   swal('success', 'Registered', 'success').then(success => {
+      //     this.$router.replace('/events')
+      //   })
+      // })
+    },
+    addElement: function () {
+      if (this.participants.length < 4) {
+        this.participants.push({
+        displayName: null,
+        mobno: null,
+        college: null,
+        email: null
       })
+      }
     }
   },
   mounted () {
@@ -100,5 +119,7 @@ h1, h2 {
     padding: 5px 5px;
 }
 
-
+.bottom_circle {
+  margin-top: 0rem;
+}
 </style>
