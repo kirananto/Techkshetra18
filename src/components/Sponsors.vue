@@ -25,7 +25,7 @@
 </div>
 
 <br>
-   <h2 class="hmain">Level 1 Sponsor</h2>
+   <h2 class="hmain">Level 2 Sponsor</h2>
    <br>
   <div class="row">
  
@@ -34,7 +34,7 @@
   </div>
   <div class="col sub"><img src="/static/images/temp/3.jpg"></div>
 </div><br>
-   <h2 class="hmain">Level 1 Sponsor</h2>
+   <h2 class="hmain">Level 3 Sponsor</h2>
    <br>
   <div class="row">
  
