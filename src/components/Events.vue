@@ -12,11 +12,11 @@
         
         <div class="thumb overlay red" ref="item" :style="{ 'background-image': 'url(' + item.photoURL + ')' }"  @click="setSelected(item, k)">
         </div>
-        <div class="detail col-md-12" v-if="shouldDisplay(k)" transition>
+        <div class="detail bgcover col-md-12" v-if="shouldDisplay(k)" transition>
           <div class="row">
           <i class="material-icons offset-md-11 offset-sm-11" style="color:white;" v-on:click="closeSelected">close</i>
           </div>
-          <div class="row bgcover">
+          <div class="row">
           <div class="col-md-6">
             <img :src="selected.event.photoURL" class="photo">
           </div>
@@ -49,7 +49,6 @@ export default {
   },
   data () {
     return {
-      events: [],
       selected: {
         event: null,
         value: null,
