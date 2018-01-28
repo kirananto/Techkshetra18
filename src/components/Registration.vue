@@ -5,34 +5,50 @@
 <table class="table table-hover">
   <tr>
     <td class="userdetails_text">Name:</td>
-    <td><input required type="text" v-model="displayName" class="form-control" name="fname" value=""></td>
+    <td><input required type="text" v-model="currentUser.displayName" class="form-control" readonly name="fname" value=""></td>
   </tr>
 
   <tr>
     <td class="userdetails_text">Email:</td>
-    <td><input required type="text" v-model="email" class="form-control" name="email" value="" ></td>
+    <td><input required type="text" v-model="currentUser.email" class="form-control" name="email" readonly value="" ></td>
   </tr>
 
   <tr>
     <td required class="userdetails_text">Mobile No:</td><td><input type="number" required v-model="mobno" class="form-control" name="mobno"></td>
+  </tr>
+
+      <tr>
+    <td class="userdetails_text">College:</td>
+    <td><input required type="text" v-model="college" class="form-control" name="email"  value="" ></td>
+  </tr>
+    <tr>
+    <td></td>
+    <td><input type="submit" name="submit" value="Submit" class="col-md-12 button-submit"></td>
   </tr>
 </table></form>
   </div>
 </template>
 
 <script>
+import firebase from 'firebase'
+require('firebase/firestore')
 export default {
   name: 'Registration',
   props: ['id'],
   data () {
     return {
-
+      mobno: null,
+      college: null,
+      currentUser: {
+        displayName: null,
+        email: null
+      }
     }
   },
   computed: {
   },
   mounted () {
-    
+    this.currentUser = firebase.auth().currentUser
   }
 }
 </script>
@@ -45,6 +61,9 @@ h1, h2 {
   font-size:3rem;
   color:#D6D0D0;
 }
+.table {
+  margin-top: 5rem;  
+}
 
 .table td {
   border-top: 0;
@@ -55,5 +74,17 @@ h1, h2 {
   border-radius: 0;
   border: 2px solid #595b5d;
 }
+
+.button-submit {
+    border: 3px solid #D6D0D0;
+    background: none;
+    margin: 30px 0 0; 
+    z-index: 1; 
+    -webkit-text-fill-color: #D6D0D0;
+     text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 5px 5px;
+}
+
 
 </style>
