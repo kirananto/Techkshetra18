@@ -8,7 +8,6 @@
     <!-- modal ends -->
      <div class="container">
       <div class="row"  ref="row">
-      <!-- <div class="row offset-md-2 container" v-for="(event,key) in events" :key="key"> -->
         <div class="con" v-for="(item,k) in getEvents" :key="k">
         
         <div class="thumb overlay red" ref="item" :style="{ 'background-image': 'url(' + item.photoURL + ')' }"  @click="setSelected(item, k)">
@@ -129,6 +128,13 @@ h1, h2 {
   font-family:'Samarkan Normal';
   font-size:5rem;
   color:#D6D0D0;
+}
+
+.sweet-modal.theme-dark {
+  background: black !important;
+}
+.sweet-modal-overlay.theme-dark {
+	background: rgba(19, 19, 19, 0.9);
 }
 
 h2 {
