@@ -1,26 +1,22 @@
 <template>
   <div class="hello">
-    <h1>{{event.name}} Registration</h1>
+    <h1 v-if="id">{{id.name}} Registration</h1>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 export default {
   name: 'Registration',
   props: ['id'],
   data () {
     return {
-      event: null
+
     }
   },
   computed: {
-      ...mapGetters(['getEvents'])
   },
   mounted () {
-    this.event = this.getEvents.filter(element => {
-        return element.id === this.id
-    })[0]
+    
   }
 }
 </script>
@@ -30,7 +26,7 @@ export default {
 h1, h2 {
   font-weight: normal;
   font-family:'Samarkan Normal';
-  font-size:5rem;
+  font-size:3rem;
   color:#D6D0D0;
 }
 </style>

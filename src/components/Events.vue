@@ -1,6 +1,11 @@
 <template>
   <div class="hello">
     <h1>EVENTS</h1>
+    <!-- modalbegins -->
+    <sweet-modal modal-theme="dark" overlay-theme="dark" ref="modal">
+      <registration v-if="registerEvent" :id="registerEvent"></registration>
+    </sweet-modal>
+    <!-- modal ends -->
      <div class="container">
       <div class="row"  ref="row">
       <!-- <div class="row offset-md-2 container" v-for="(event,key) in events" :key="key"> -->
@@ -19,12 +24,13 @@
           <div class="col-md-6">
               <h2>{{selected.event.name}}</h2>
               <p class="desc" >{{selected.event.details}}</p>
-              <div class="details-btn" @click="register">Register</div>
+              <div class="details-btn" @click="register(selected.event)">Register</div>
           </div>
           </div>
         </div>
         </div>
      </div>
+     
   </div>
   </div>
 </template>
@@ -32,9 +38,16 @@
 <script>
 import { mapGetters } from 'vuex'
 import firebase from 'firebase'
+import Registration from './Registration'
+import { SweetModal, SweetModalTab } from 'sweet-modal-vue'
 require('firebase/firestore')
 export default {
   name: 'Events',
+  components: {
+    SweetModal,
+		SweetModalTab,
+    Registration
+  },
   data () {
     return {
       events: [],
@@ -43,7 +56,8 @@ export default {
         value: null,
         key: null
       },
-      noele: null
+      noele: null,
+      registerEvent: null
     }
   },
   methods: {
@@ -68,14 +82,17 @@ export default {
         return false
       }
     },
-    register: function () {
-      if(firebase.auth().currentUser){
-        this.$router.replace(`/registration/${this.selected.event.id}`)
+    register: function (event) {
+      if (firebase.auth().currentUser) {
+        this.registerEvent = this.selected.event
+        this.$refs.modal.open() 
+        // this.$router.replace(`/registration/${this.selected.event.id}`)
       } else {
         var provider = new firebase.auth.GoogleAuthProvider()
           firebase.auth().signInWithPopup(provider)
           .then((result) => {
-            this.$router.replace(`/registration/${this.selected.event.id}`)
+            this.$refs.modal.open() 
+            // this.$router.replace(`/registration/${this.selected.event.id}`)
           }).catch((error) => {
             console.log(error.message)
           })
