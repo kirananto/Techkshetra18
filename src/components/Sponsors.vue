@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-md-6">
           <h3 class="hmain">Diamond Sponsors</h3>
-          <img src="/static/images/sponsors/BALCO.png" class="col-md-12 ">
+          <img src="/static/images/sponsors/BALCO.png" class="col-md-9 ">
         </div>
         <div class="col-md-6">
           <h3 class="hmain">Platinum Sponsors</h3>
