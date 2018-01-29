@@ -6,8 +6,8 @@
             <img :src="url" class="col-md-6" alt="">
             <div class="col-md-6">
                     <img src="/static/techkshetra_logo.svg" class="col-md-5 heading" alt="">
-                 <h3 class="heading">{{currentUser.displayName}}</h3>
-                 <h6>{{currentUser.email}}</h6>
+                 <h3 v-if="currentUser" class="heading">{{currentUser.displayName}}</h3>
+                 <h6 v-if="currentUser" >{{currentUser.email}}</h6>
             </div>
         </div>
     </div>

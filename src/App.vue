@@ -26,7 +26,6 @@
        @autoshow="autoshow"
        @workshops="workshops"
        @events="events"
-       @about="about"
        @contact="contact"
        @qrcode="qrcode"
   ></fab>

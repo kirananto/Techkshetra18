@@ -8,7 +8,7 @@
     <!-- modal ends -->
      <div class="container">
       <div class="row"  ref="row">
-        <div class="con" v-for="(item,k) in getEvents" :key="k">
+        <div class="con" v-for="(item,k) in getWorkshops" :key="k">
         
         <div class="thumb overlay red" ref="item" :style="{ 'background-image': 'url(' + item.photoURL + ')' }"  @click="setSelected(item, k)">
         </div>
@@ -97,7 +97,7 @@ export default {
     shouldDisplay: function (key) {
       if (this.selected.value === (key - this.noele + 1) / this.noele) {
         return true
-      } else if ((this.selected.key > this.getEvents.length - (this.noele - 1)) && (key === this.getEvents.length - 1)) {
+      } else if ((this.selected.key > this.getWorkshops.length - (this.noele - 1)) && (key === this.getWorkshops.length - 1)) {
         return true
       } else {
         return false
@@ -119,10 +119,10 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getEvents'])
+    ...mapGetters(['getWorkshops'])
   },
   mounted () {
-    console.log(this.events.length - 1)
+    console.log(this.getWorkshops.length - 1)
     this.noele = parseInt(this.$refs.row.clientWidth / 256)
   }
 }

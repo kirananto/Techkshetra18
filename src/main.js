@@ -33,9 +33,27 @@ router.beforeEach((to, from, next) => {
         store.commit('PUSH_EVENT', doc.data())
       })
     })
-    next()
+    if (store.getters.getWorkshops[0] === undefined) {
+      firebase.firestore().collection('workshops').get().then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          store.commit('PUSH_WORKSHOP', doc.data())
+        })
+      })
+      next()
+    } else {
+      next()
+    }
   } else {
-    next()
+    if (store.getters.getWorkshops[0] === undefined) {
+      firebase.firestore().collection('workshops').get().then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          store.commit('PUSH_WORKSHOP', doc.data())
+        })
+      })
+      next()
+    } else {
+      next()
+    }
   }
 })
 /* eslint-disable no-new */
