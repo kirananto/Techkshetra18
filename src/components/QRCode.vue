@@ -74,4 +74,8 @@ h3 {
 .heading {
     margin-top: 4rem;
 }
+
+.col-md-5.heading {
+    margin-top: 10rem;
+}
 </style>
