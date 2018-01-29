@@ -3,6 +3,9 @@
     <h1>CONTACT US</h1>
     <div class="container">
       <div class="row">
+        <div class="col-md-12"><img class="rajagiri" src="https://www.rajagiritech.ac.in/Home/images/010.png" alt=""></div>
+      </div>
+      <div class="row">
         <div class="col-md-6">
           <p>Rajagiri School of Engineering & Technology</p>
           <p>Rajagiri Valley, Kakkanad,</p>

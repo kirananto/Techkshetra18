@@ -1,6 +1,5 @@
 import Home from '@/components/Home'
 import Sponsors from '@/components/Sponsors'
-import AboutUs from '@/components/AboutUs'
 import ContactUs from '@/components/ContactUs'
 import MainEvents from '@/components/MainEvents'
 import Events from '@/components/Events'
@@ -15,9 +14,6 @@ const routes = [
   },
   { path: '/sponsors',
     component: Sponsors
-  },
-  { path: '/aboutus',
-    component: AboutUs
   },
   { path: '/contact',
     component: ContactUs

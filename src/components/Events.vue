@@ -127,19 +127,6 @@ export default {
   mounted () {
     console.log(this.events.length - 1)
     this.noele = parseInt(this.$refs.row.clientWidth / 256)
-    // ===============================================
-    // firebase push events
-    var eventData = []
-    var batch = firebase.firestore().batch()
-    eventData.forEach(element => {
-      batch.set(firebase.firestore().collection(`events/${element.id}`), element)
-    }).then(success => { 
-      console.log('to commit') 
-      batch.commit().then(success => {
-        console.log('success')
-      })
-    })    
-    // ======================================
   }
 }
 </script>

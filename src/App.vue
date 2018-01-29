@@ -68,11 +68,6 @@ export default {
                   tooltip: 'AutoShow'
               },
               {
-                  name: 'about',
-                  icon: 'supervisor_account',
-                  tooltip: 'About Us'
-              },
-              {
                   name: 'contact',
                   icon: 'contacts',
                   tooltip: 'Contact Us'
@@ -100,9 +95,6 @@ export default {
       },
       events () {
         this.$router.replace('/events')
-      },
-      about () {
-        this.$router.replace('/aboutus')
       },
       contact () {
         this.$router.replace('/contact')

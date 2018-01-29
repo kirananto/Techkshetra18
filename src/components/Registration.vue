@@ -44,7 +44,7 @@ import QRCode from 'qrcode'
 require('firebase/firestore')
 export default {
   name: 'Registration',
-  props: ['id'],
+  props: ['id', 'event'],
   data () {
     return {
       currentUser: null,
