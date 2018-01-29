@@ -96,8 +96,9 @@ export default {
     },
     shouldDisplay: function (key) {
       if (this.selected.value === (key - this.noele + 1) / this.noele) {
+        console.log(this.selected.key + '--' + key)
         return true
-      } else if ((this.selected.key > this.events.length - (this.noele - 1)) && (key === this.events.length - 1)) {
+      } else if ((this.selected.key >= this.events.length - (this.noele - 1)) && (key === this.events.length - 1)) {
         return true
       } else {
         return false
