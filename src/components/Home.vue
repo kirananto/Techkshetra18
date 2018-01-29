@@ -27,7 +27,7 @@ h1, h2 {
 
 img {
   max-width: 50%;
-  margin-top: 30%;
+  margin-top: 25%;
   z-index:100;
 }
 
