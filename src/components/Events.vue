@@ -10,7 +10,7 @@
       <div class="row"  ref="row">
         <div class="con" v-for="(item,k) in events" :key="k">
         
-        <div class="thumb overlay red" ref="item" :style="{ 'background-image': 'url(' + item.photoURL + ')' }"  @click="setSelected(item, k)">
+        <div class="thumb overlay red" ref="item" :style="{ 'background-image': 'url(/static/images/Non_tech/' + item.photoURL}"  @click="setSelected(item, k)">
         </div>
         <div class="detail bgcover col-md-12" v-if="shouldDisplay(k)" transition>
           <div class="row">
@@ -18,7 +18,7 @@
           </div>
           <div class="row">
           <div class="col-md-6">
-            <img :src="selected.event.photoURL" class="photo">
+            <img :src="'/static/images/Non_tech/'+selected.event.photoURL" class="photo">
           </div>
           <div class="col-md-6">
             
@@ -127,6 +127,19 @@ export default {
   mounted () {
     console.log(this.events.length - 1)
     this.noele = parseInt(this.$refs.row.clientWidth / 256)
+    // ===============================================
+    // firebase push events
+    var eventData = []
+    var batch = firebase.firestore().batch()
+    eventData.forEach(element => {
+      batch.set(firebase.firestore().collection(`events/${element.id}`), element)
+    }).then(success => { 
+      console.log('to commit') 
+      batch.commit().then(success => {
+        console.log('success')
+      })
+    })    
+    // ======================================
   }
 }
 </script>
