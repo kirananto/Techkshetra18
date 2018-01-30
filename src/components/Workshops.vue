@@ -146,6 +146,9 @@ $content: 'VIEW DETAILS';
 	display: contents;
 }
 
+.hello {
+  margin-top: 5rem;
+}
 .rules {
   color: white;
   margin-top:1rem;

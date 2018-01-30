@@ -68,6 +68,9 @@ $content: 'VIEW DETAILS';
 	display: contents;
 }
 
+.hello {
+  margin-top: 5rem;
+}
 
 h1, h2 {
   font-weight: normal;

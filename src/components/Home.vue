@@ -25,6 +25,10 @@ h1, h2 {
   color:#D6D0D0;
 }
 
+.hello {
+  margin-top: 5rem;
+}
+
 img {
   max-width: 50%;
   margin-top: 15%;

@@ -35,6 +35,11 @@ h1, h2 {
   font-family:'Samarkan Normal';
   font-size:5rem;
   color:#D6D0D0;
+
+}
+
+.hello {
+  margin-top: 5rem;
 }
 h3 {
   font-size: 1rem;
