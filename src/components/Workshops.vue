@@ -25,20 +25,23 @@
               <h2>{{selected.event.name}}</h2>
             <ul class="nav nav-tabs col-md-12 col-sm-12">
               <li class="active col-md-4  col-4"><a data-toggle="tab" href="#about">ABOUT</a></li>
-              <li class="col-md-4 col-4"><a data-toggle="tab" href="#menu1">RULES</a></li>
+              <li class="col-md-4 col-4"><a data-toggle="tab" href="#menu1">DETAILS</a></li>
               <li class="col-md-4  col-4"><a data-toggle="tab" href="#menu2">CONTACT</a></li>
             </ul>
 
             <div class="tab-content">
               <div id="about" class="tab-pane fade in active">
-                <p class="desc" >{{selected.event.details}}</p>
+                <p class="desc" v-for="(detail,key) in selected.event.details" :key="key">{{detail}}</p>
+                <p class="desc"> Date: {{selected.event.date}}</p>
                 <!-- <p class="desc" >Registration Fee: Rs.{{selected.event.registrationFee}}</p> -->
-                <div class="details-btn" @click="register(selected.event)">Register</div>
+                <!-- <div class="details-btn" @click="register(selected.event)">Register</div> -->
               </div>
               <div id="menu1" class="tab-pane fade">
+                <h4>Venues</h4>
                 <ul>
-                <li class="rules" v-for="(item,key) in selected.event.eventRules" :key="key">{{item}}</li>
+                <li class="rules" v-for="(item,key) in selected.event.eventVenue" :key="key">{{item}}</li>
                 </ul>
+                <h4>DURATION :  {{selected.event.duration}}</h4>
               </div>
               <div id="menu2" class="tab-pane fade">
                  <ul>
@@ -155,7 +158,14 @@ h1, h2 {
   font-size:5rem;
   color:#D6D0D0;
 }
-
+h4 {
+  color: white;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top:2rem;
+  text-align: left;
+  font-size: 1rem;
+}
 .sweet-modal.theme-dark {
   background: black !important;
 }
