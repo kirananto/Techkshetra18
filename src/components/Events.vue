@@ -146,7 +146,7 @@ $content: 'VIEW DETAILS';
 }
 
 .con {
-	display: contents;
+	display: run-in;
 }
 
 .rules {
