@@ -130,6 +130,13 @@ export default {
   mounted () {
     console.log(this.events.length - 1)
     this.noele = parseInt(this.$refs.row.clientWidth / 256)
+
+    // =======================
+     firebase.firestore().collection('events').where('photoURL', '==', 'https://path_to_image').get().then(querySnapshot => {
+       querySnapshot.forEach(doc => {
+         console.log(doc.data().id)
+       })
+     })
   }
 }
 </script>
@@ -146,7 +153,7 @@ $content: 'VIEW DETAILS';
 }
 
 .con {
-	display: run-in;
+	display: contents;
 }
 
 .rules {
