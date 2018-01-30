@@ -32,7 +32,7 @@
             <div class="tab-content">
               <div id="about" class="tab-pane fade in active">
                 <p class="desc" >{{selected.event.details}}</p>
-                <p class="desc" >Registration Fee: Rs.{{selected.event.registrationFee}}</p>
+                <!-- <p class="desc" >Registration Fee: Rs.{{selected.event.registrationFee}}</p> -->
                 <div class="details-btn" @click="register(selected.event)">Register</div>
               </div>
               <div id="menu1" class="tab-pane fade">

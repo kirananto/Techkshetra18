@@ -31,8 +31,10 @@
 
             <div class="tab-content">
               <div id="about" class="tab-pane fade in active">
+                <div class="bodydesc">
                 <p class="desc" >{{selected.event.details}}</p>
-                <p class="desc" >Registration Fee: Rs.{{selected.event.registrationFee}}</p>
+                </div>
+                <!-- <p class="desc" >Registration Fee: Rs.{{selected.event.registrationFee}}</p> -->
                 <div class="details-btn" @click="register(selected.event)">Register</div>
               </div>
               <div id="menu1" class="tab-pane fade">
@@ -274,6 +276,25 @@ h2 {
   }
 
 }
+.bodydesc {
+  height: 20rem;
+   overflow-y: auto;
+}
+
+#menu1 {
+  height: 25rem;
+   overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+/* optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
 .desc
 {
   color: white;
