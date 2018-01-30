@@ -35,7 +35,7 @@
                 <p class="desc" >{{selected.event.details}}</p>
                 </div>
                 <!-- <p class="desc" >Registration Fee: Rs.{{selected.event.registrationFee}}</p> -->
-                <div class="details-btn" @click="register(selected.event)">Register</div>
+                <!-- <div class="details-btn" @click="register(selected.event)">Register</div> -->
               </div>
               <div id="menu1" class="tab-pane fade">
                 <ul>
