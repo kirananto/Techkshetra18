@@ -35,12 +35,6 @@ img {
   z-index:100;
 }
 
-@media screen and (max-width:480px){
-  img {
-    max-width: 90%;
-  }
-}
-
 .powered {
   color: white;
   margin-bottom: 0rem !important;
@@ -54,6 +48,19 @@ img {
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-stretch: extra-condensed;
   font-weight: 200;
+}
+
+@media screen and (max-width:480px){
+  img {
+    max-width: 90%;
+  }
+}
+
+
+@media screen and (max-width: 420px){
+  /* .hello {
+    margin-left: 2.5rem;
+  } */
 }
 
 </style>
