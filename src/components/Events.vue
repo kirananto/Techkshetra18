@@ -286,8 +286,9 @@ h2 {
 }
 
 #menu1 {
-  height: 25rem;
-   overflow-y: auto;
+    height: 20rem;
+    width: 25rem;
+    overflow-y: auto;
 }
 
 ::-webkit-scrollbar {
@@ -348,14 +349,9 @@ h2 {
   .row{
     margin-left: -4rem;
   }
-  // .hello{
-  //   margin-top: 5rem;
-  //   margin-left: 3.2rem;
-  // }  
+ 
 }
 @media screen and (max-width: 1200px){
-// .container{
-// margin-left: 10rem;
-// }
+
 }
 </style>
