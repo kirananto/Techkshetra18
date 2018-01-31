@@ -345,6 +345,9 @@ h2 {
   .container{
     padding-left: 4.3rem;
   }
+  .row{
+    margin-left: -4rem;
+  }
   // .hello{
   //   margin-top: 5rem;
   //   margin-left: 3.2rem;
