@@ -10,7 +10,7 @@
       <div class="row"  ref="row">
         <div class="con" v-for="(item,k) in getWorkshops" :key="k">
         
-        <div class="thumb overlay red" ref="item" :style="{ 'background-image': 'url(' + item.photoURL + ')' }"  @click="setSelected(item, k)">
+        <div class="thumb overlay red" ref="item" :style="{ 'background-image': 'url(/static/images/Non_tech/' + item.photoURL}"  @click="setSelected(item, k)">
         </div>
         <div class="detail bgcover col-md-12" v-if="shouldDisplay(k)" transition>
           <div class="row">
@@ -18,7 +18,7 @@
           </div>
           <div class="row">
           <div class="col-md-6">
-            <img :src="selected.event.photoURL" class="photo">
+            <img :src="'/static/images/Non_tech/' + selected.event.photoURL" class="photo">
           </div>
           <div class="col-md-6">
             
@@ -267,7 +267,7 @@ h2 {
 .photo {
   margin: 1rem;
   width: 100%;
-  heigth:auto;
+  height:auto;
   margin-bottom: 3rem;
   border-radius: 1rem;
 

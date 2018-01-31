@@ -262,7 +262,7 @@ h2 {
 .photo {
   margin: 1rem;
   width: 100%;
-  heigth:auto;
+  height:auto;
   margin-bottom: 3rem;
   border-radius: 1rem;
 
