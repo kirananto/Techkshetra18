@@ -253,7 +253,7 @@ h2 {
 }
 
 .red:after, .red:before {
-  background-color: red;
+  background-color: #c13a47;
   opacity: 0;
   -webkit-transition: .5s ease;
     transition: .5s ease;
@@ -265,20 +265,12 @@ h2 {
   height:auto;
   margin-bottom: 3rem;
   border-radius: 1rem;
-
   @media screen and (max-width: 500px) {
     display:none;
   }
 }
 .hello{
-
   height: auto;
-  // @media screen and (max-width: 420px) {
-  //   margin-top: 5rem;
-  //   margin-left: 3.2rem;
-
-  // }
-
 }
 .bodydesc {
   height: 20rem;
@@ -351,6 +343,14 @@ h2 {
   }
  
 }
-@media screen and (max-width: 1200px){
-}
+@media screen and (min-width: 1024px){
+  .bgcover{
+      width: 900px;
+    }
+  }
+@media screen and (min-width: 1200px){
+  .bgcover{
+      width: 1100px;
+    }
+  }
 </style>
