@@ -287,7 +287,7 @@ h2 {
 
 #menu1 {
     height: 20rem;
-    width: 25rem;
+    width: 100% !important;
     overflow-y: auto;
 }
 
