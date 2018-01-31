@@ -25,4 +25,9 @@ h1, h2 {
 .hello {
   margin-top: 5rem;
 }
+@media screen and (max-width: 420px){
+  .hello {
+      margin-left: -0.20rem;
+  }
+}
 </style>

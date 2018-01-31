@@ -147,8 +147,9 @@ $content: 'VIEW DETAILS';
   margin-top:3rem;
   
   @media screen  and (max-width: 420px ){
-    margin-right: 20%;
-  margin-left: 3.2rem !important;
+  //   margin-right: 20%;
+  // margin-left: 3.2rem !important;
+  padding-left: 5.5rem;
   }
 }
 
@@ -278,9 +279,11 @@ h2 {
 .hello{
 
   height: auto;
-  @media screen and (max-width: 420px) {
-    margin-left: 2rem;
-  }
+  // @media screen and (max-width: 420px) {
+  //   margin-top: 5rem;
+  //   margin-left: 3.2rem;
+
+  // }
 
 }
 .bodydesc {
@@ -342,5 +345,17 @@ h2 {
     @media screen and (max-width: 420px){
       margin-top: 10px !important;
     }
+}
+
+@media screen and (max-width: 420px){
+  // .hello{
+  //   margin-top: 5rem;
+  //   margin-left: 3.2rem;
+  // }  
+}
+@media screen and (max-width: 1200px){
+.container{
+margin-left: 10rem;
+}
 }
 </style>
