@@ -20,7 +20,7 @@
           <div class="col-md-6">
             <img :src="'/static/images/Non_tech/'+selected.event.photoURL" class="photo">
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6 fixedht">
             
               <h2>{{selected.event.name}}</h2>
             <ul class="nav nav-tabs col-md-12 col-sm-12">
@@ -253,7 +253,7 @@ h2 {
 }
 
 .red:after, .red:before {
-  background-color: red;
+  background-color: #c13a47;
   opacity: 0;
   -webkit-transition: .5s ease;
     transition: .5s ease;
@@ -265,20 +265,12 @@ h2 {
   height:auto;
   margin-bottom: 3rem;
   border-radius: 1rem;
-
   @media screen and (max-width: 500px) {
     display:none;
   }
 }
 .hello{
-
   height: auto;
-  // @media screen and (max-width: 420px) {
-  //   margin-top: 5rem;
-  //   margin-left: 3.2rem;
-
-  // }
-
 }
 .bodydesc {
   height: 20rem;
@@ -287,7 +279,7 @@ h2 {
 
 #menu1 {
     height: 20rem;
-    width: 25rem;
+    width: 100% !important;
     overflow-y: auto;
 }
 
@@ -341,7 +333,10 @@ h2 {
       margin-top: 10px !important;
     }
 }
-
+.fixedht{
+  height: 35rem;
+  padding-bottom: 2rem;
+}
 @media screen and (max-width: 420px){
   .container{
     padding-left: 4.3rem;
@@ -351,6 +346,14 @@ h2 {
   }
  
 }
-@media screen and (max-width: 1200px){
-}
+@media screen and (min-width: 1024px){
+  .bgcover{
+      width: 900px;
+    }
+  }
+@media screen and (min-width: 1200px){
+  .bgcover{
+      width: 1100px;
+    }
+  }
 </style>
