@@ -71,7 +71,7 @@ $content: 'VIEW DETAILS';
 .hello {
   margin-top: 5rem;
   @media screen  and (max-width: 420px ){
-  margin-left: 1.3rem;
+  margin-left: 1.8rem;
 }
 }
 
