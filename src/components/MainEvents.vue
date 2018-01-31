@@ -70,6 +70,9 @@ $content: 'VIEW DETAILS';
 
 .hello {
   margin-top: 5rem;
+  @media screen  and (max-width: 420px ){
+  margin-left: 1.3rem;
+}
 }
 
 h1, h2 {
@@ -102,5 +105,10 @@ h2 {
 
 .container:hover{
   opacity: 1;
+}
+@media screen and (max-width: 1200px){
+.container{
+margin-left: 10rem;
+}
 }
 </style>

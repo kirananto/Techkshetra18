@@ -145,12 +145,6 @@ export default {
 $content: 'VIEW DETAILS';
 .container {
   margin-top:3rem;
-  
-  @media screen  and (max-width: 420px ){
-  //   margin-right: 20%;
-  // margin-left: 3.2rem !important;
-  padding-left: 5.5rem;
-  }
 }
 
 .con {
@@ -348,14 +342,17 @@ h2 {
 }
 
 @media screen and (max-width: 420px){
+  .container{
+    padding-left: 4.3rem;
+  }
   // .hello{
   //   margin-top: 5rem;
   //   margin-left: 3.2rem;
   // }  
 }
 @media screen and (max-width: 1200px){
-.container{
-margin-left: 10rem;
-}
+// .container{
+// margin-left: 10rem;
+// }
 }
 </style>
