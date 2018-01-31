@@ -20,7 +20,7 @@
           <div class="col-md-6">
             <img :src="'/static/images/Non_tech/'+selected.event.photoURL" class="photo">
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6 fixedht">
             
               <h2>{{selected.event.name}}</h2>
             <ul class="nav nav-tabs col-md-12 col-sm-12">
@@ -333,7 +333,10 @@ h2 {
       margin-top: 10px !important;
     }
 }
-
+.fixedht{
+  height: 35rem;
+  padding-bottom: 2rem;
+}
 @media screen and (max-width: 420px){
   .container{
     padding-left: 4.3rem;
