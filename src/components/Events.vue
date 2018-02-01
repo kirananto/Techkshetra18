@@ -316,13 +316,16 @@ h2 {
    @media screen and (max-width: 425px) and (min-width: 341px) {
      margin-left: 15%;
    }
-   @media screen and (max-width: 1200px) and (min-width: 960px) {
+   @media screen and (max-width: 959px) and (min-width: 426px) {
      padding-left: 12%;
    }
 
   @media screen and (max-width: 1200px) and (min-width: 960px) {
    padding-left: 8%;
   }
+  @media screen and (min-width: 1201px) {
+    padding-left: 2%;
+ }
  }
 
 .details-btn{
