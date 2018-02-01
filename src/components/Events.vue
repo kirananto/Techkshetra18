@@ -122,12 +122,15 @@ export default {
       return this.getEvents.filter(event => event.branch === this.branch)
     },
     chunkedEvents: function () {
-      return chunk(this.events, this.noele - 1)
+      return chunk(this.events, this.noele)
     }
   },
   mounted () {
     console.log(this.events.length - 1)
-    this.noele = parseInt(this.$refs.prev.clientWidth / 276)
+    this.noele = parseInt(this.$refs.prev.clientWidth / 276) - 1
+    if (this.noele > 4) {
+      this.noele = 4
+    }
   }
 }
 </script>
