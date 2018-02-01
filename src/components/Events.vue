@@ -201,6 +201,9 @@ h2 {
    @media screen and (max-width: 425px) and (min-width: 341px) {
      margin-left: 15%;
    }
+  @media screen and (max-width: 1200px) and (min-width: 960px) {
+   padding-left: 8%;
+  }
  }
 .detail {
   padding-top: 1rem;
