@@ -28,22 +28,26 @@
               <h2>{{selected.event.name}}</h2>
             <ul class="nav nav-tabs col-md-12 col-sm-12">
               <li class=" col-md-4 active col-4" ><a data-toggle="tab" :href="'#'+selected.event.name+'about'">ABOUT</a></li>
-              <li class="col-md-4 col-4"><a data-toggle="tab" :href="'#'+selected.event.name+'menu1'">RULES</a></li>
+              <li class="col-md-4 col-4"><a data-toggle="tab" :href="'#'+selected.event.name+'menu1'">DETAILS</a></li>
               <li class="col-md-4  col-4"><a data-toggle="tab" :href="'#'+selected.event.name+'menu2'">CONTACT</a></li>
             </ul>
 
             <div class="tab-content">
               <div :id="selected.event.name+'about'" class="tab-pane fade in active">
                 <div class="bodydesc">
-                <p class="desc" >{{selected.event.details}}</p>
+                <ul>
+                <li style="color:white; text-align:left;" v-for="(detail,key) in selected.event.details" :key="key">{{detail}}</li></ul>
+                <p class="desc"> Date: {{selected.event.date}}</p>
                 </div>
               
               </div>
               <div :id="selected.event.name+'menu1'" class="tab-pane fade">
                 <div class="bodydesc">
+                <h4 class="title">Venues</h4>
                 <ul>
-                <li class="rules" v-for="(item,key) in selected.event.eventRules" :key="key">{{item}}</li>
+                <li class="rules" v-for="(item,key) in selected.event.eventVenue" :key="key">{{item}}</li>
                 </ul>
+                <h4 class="title">DURATION : {{selected.event.duration}}</h4> 
                 </div>
               </div>
               <div  :id="selected.event.name+'menu2'" class="tab-pane fade">
@@ -152,6 +156,10 @@ $content: 'VIEW DETAILS';
   text-align: left;
 }
 
+.title {
+   text-transform: uppercase;
+   color: white;
+}
 h1, h2 {
   font-weight: normal;
   font-family:'Samarkan Normal';
