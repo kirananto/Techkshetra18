@@ -6,17 +6,16 @@
       <registration v-if="registerEvent" :id="registerEvent"></registration>
     </sweet-modal>
     <!-- modal ends -->
-     <div class="container">
-      <div class="row" >
-   
+     <div class="container"> 
    <!-- hello -->
     <div v-for="(item,k) in chunkedEvents" :key="k">
-        <div class="con" v-for="(i,k) in item" :key="k">
-
-        <div class="thumb overlay red" ref="item" :style="{ 'background-image': 'url(/static/images/Non_tech/' + i.photoURL}"  @click="setSelected(i)">
-        </div>
+      <div class="row"> 
+ <div class="thumb overlay red" v-for="(i,key) in item" :key="key" v-on:click="setSelected(i, k)" :style="{ 'background-image': 'url(/static/images/Non_tech/' + i.photoURL}" >
       </div>
-      <div class="detail bgcover col-md-12" transition>
+        </div>
+      <div v-if="selected.value === k"> 
+        <!-- insert old code here -->
+        <div class="detail bgcover col-md-12" transition>
           <div class="row">
           <i class="material-icons" style="margin-left: 100%;color: white;" v-on:click="closeSelected">close</i>
           </div>
@@ -58,11 +57,11 @@
             </div>
             </div>
           </div>
-        </div>
-    </div>
-
+</div>
+      </div>
    <!-- ends -->
-      </div></div></div>
+      </div>
+      </div></div>
 </template>
 
 <script>
@@ -92,23 +91,14 @@ export default {
     }
   },
   methods: {
-    setSelected: function (event) {
+    setSelected: function (event, value) {
+      this.selected.value = value
         this.selected.event = event
     },
     closeSelected: function () {
       this.selected = {
         event: null,
         value: null
-      }
-    },
-    shouldDisplay: function (key) {
-      if (this.selected.value === (key - this.noele + 1) / this.noele) {
-        console.log(this.selected.key + '--' + key)
-        return true
-      } else if ((this.selected.key >= this.events.length - (this.noele - 1)) && (key === this.events.length - 1)) {
-        return true
-      } else {
-        return false
       }
     },
     register: function (event) {
@@ -132,13 +122,12 @@ export default {
       return this.getEvents.filter(event => event.branch === this.branch)
     },
     chunkedEvents: function () {
-      return chunk(this.events, this.noele)
+      return chunk(this.events, this.noele - 1)
     }
   },
   mounted () {
     console.log(this.events.length - 1)
-    console.log(this.$refs)
-    this.noele = 4
+    this.noele = parseInt(this.$refs.prev.clientWidth / 276)
   }
 }
 </script>
@@ -154,7 +143,7 @@ $content: 'VIEW DETAILS';
     height: 15.5rem;
 }
 .con {
-	display: contents;
+	width: 10rem;
 }
 
 .rules {
