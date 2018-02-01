@@ -305,7 +305,7 @@ h2 {
 .bgcover{
   background-color:#080808;
   padding-bottom: 2rem;
-  margin-left: 8%;
+  // margin-left: 8%;
   margin-bottom: 4rem;
 }
 
