@@ -1,68 +1,74 @@
 <template>
-  <div class="hello">
+  <div class="hello" ref="prev">
     <h1>WORKSHOPS</h1>
     <!-- modalbegins -->
     <sweet-modal modal-theme="dark" blocking enable-mobile-fullscreen overlay-theme="dark" ref="modal">
-      <registration v-if="registerEvent" :id="registerEvent"></registration>
+      <registration v-if="registerEvent" :maxparticipants="selected.event.max_participants" :id="registerEvent"></registration>
     </sweet-modal>
     <!-- modal ends -->
-     <div class="container">
-      <div class="row"  ref="row">
-        <div class="con" v-for="(item,k) in getWorkshops" :key="k">
-        
-        <div class="thumb overlay red" ref="item" :style="{ 'background-image': 'url(/static/images/Non_tech/' + item.photoURL}"  @click="setSelected(item, k)">
+     <div class="container"> 
+   <!-- hello -->
+    <div v-for="(item,k) in chunkedEvents" :key="k">
+      <div class="row"> 
+ <div class="thumb overlay red" v-for="(i,key) in item" :key="key" v-on:click="setSelected(i, k)" :style="{ 'background-image': 'url(/static/images/Non_tech/' + i.photoURL}" >
+      </div>
         </div>
-        <div class="detail bgcover col-md-12" v-if="shouldDisplay(k)" transition>
+      <div v-if="selected.value === k"> 
+        <!-- insert old code here -->
+        <div class="detail bgcover col-md-12" transition>
           <div class="row">
-          <i class="material-icons offset-md-11 offset-sm-11" style="color:white;" v-on:click="closeSelected">close</i>
+          <i class="material-icons" style="margin-left: 100%;color: white;" v-on:click="closeSelected">close</i>
           </div>
           <div class="row">
           <div class="col-md-6">
-            <img :src="'/static/images/Non_tech/' + selected.event.photoURL" class="photo">
+            <img :src="'/static/images/Non_tech/'+selected.event.photoURL" class="photo">
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6 fixedht">
             
               <h2>{{selected.event.name}}</h2>
             <ul class="nav nav-tabs col-md-12 col-sm-12">
-              <li class="active col-md-4  col-4"><a data-toggle="tab" href="#about">ABOUT</a></li>
-              <li class="col-md-4 col-4"><a data-toggle="tab" href="#menu1">DETAILS</a></li>
-              <li class="col-md-4  col-4"><a data-toggle="tab" href="#menu2">CONTACT</a></li>
+              <li class=" col-md-4 active col-4" ><a data-toggle="tab" :href="'#'+selected.event.name+'about'">ABOUT</a></li>
+              <li class="col-md-4 col-4"><a data-toggle="tab" :href="'#'+selected.event.name+'menu1'">RULES</a></li>
+              <li class="col-md-4  col-4"><a data-toggle="tab" :href="'#'+selected.event.name+'menu2'">CONTACT</a></li>
             </ul>
 
             <div class="tab-content">
-              <div id="about" class="tab-pane fade in active">
-                <p class="desc" v-for="(detail,key) in selected.event.details" :key="key">{{detail}}</p>
-                <p class="desc"> Date: {{selected.event.date}}</p>
-                <!-- <p class="desc" >Registration Fee: Rs.{{selected.event.registrationFee}}</p> -->
-                <!-- <div class="details-btn" @click="register(selected.event)">Register</div> -->
+              <div :id="selected.event.name+'about'" class="tab-pane fade in active">
+                <div class="bodydesc">
+                <p class="desc" >{{selected.event.details}}</p>
+                </div>
+              
               </div>
-              <div id="menu1" class="tab-pane fade">
-                <h4>Venues</h4>
+              <div :id="selected.event.name+'menu1'" class="tab-pane fade">
+                <div class="bodydesc">
                 <ul>
-                <li class="rules" v-for="(item,key) in selected.event.eventVenue" :key="key">{{item}}</li>
+                <li class="rules" v-for="(item,key) in selected.event.eventRules" :key="key">{{item}}</li>
                 </ul>
-                <h4>DURATION :  {{selected.event.duration}}</h4>
+                </div>
               </div>
-              <div id="menu2" class="tab-pane fade">
+              <div  :id="selected.event.name+'menu2'" class="tab-pane fade">
                  <ul>
                <li class="rules" v-for="(item,key) in selected.event.contact" :key="key">{{item}}</li>
                  </ul>
               </div>
+
+              <p class="desc" >Registration Fee: Rs.{{selected.event.registrationFee}}</p>
+                <div class="details-btn" @click="register(selected.event)">Register</div>
             </div>
             </div>
           </div>
         </div>
-        </div>
-     </div>
-     
-  </div>
-  </div>
+      </div>
+   <!-- ends -->
+      </div>
+      </div></div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import firebase from 'firebase'
 import Registration from './Registration'
+import chunk from 'chunk'
 import { SweetModal, SweetModalTab } from 'sweet-modal-vue'
 require('firebase/firestore')
 export default {
@@ -86,24 +92,13 @@ export default {
   },
   methods: {
     setSelected: function (event, value) {
-      console.log(value)
-        this.selected.key = value 
+      this.selected.value = value
         this.selected.event = event
-        this.selected.value = parseInt(value / this.noele)
     },
     closeSelected: function () {
       this.selected = {
         event: null,
         value: null
-      }
-    },
-    shouldDisplay: function (key) {
-      if (this.selected.value === (key - this.noele + 1) / this.noele) {
-        return true
-      } else if ((this.selected.key > this.getWorkshops.length - (this.noele - 1)) && (key === this.getWorkshops.length - 1)) {
-        return true
-      } else {
-        return false
       }
     },
     register: function (event) {
@@ -122,11 +117,17 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getWorkshops'])
+    ...mapGetters(['getWorkshops']),
+    chunkedEvents: function () {
+      return chunk(this.getWorkshops, this.noele)
+    }
   },
   mounted () {
-    console.log(this.getWorkshops.length - 1)
-    this.noele = parseInt(this.$refs.row.clientWidth / 256)
+    // console.log(this.events.length - 1)
+    this.noele = parseInt(this.$refs.prev.clientWidth / 240) - 1
+    if (this.noele > 4) {
+      this.noele = 4
+    }
   }
 }
 </script>
@@ -135,20 +136,16 @@ export default {
 $content: 'VIEW DETAILS';
 .container {
   margin-top:3rem;
-  
-  @media screen  and (max-width: 420px ){
-    margin-right: 20%;
-  margin-left: 3.2rem !important;
-  }
 }
 
+.tab-content>.active {
+    display: block;
+    height: 15.5rem;
+}
 .con {
-	display: contents;
+	width: 10rem;
 }
 
-.hello {
-  margin-top: 5rem;
-}
 .rules {
   color: white;
   margin-top:1rem;
@@ -161,14 +158,7 @@ h1, h2 {
   font-size:5rem;
   color:#D6D0D0;
 }
-h4 {
-  color: white;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-top:2rem;
-  text-align: left;
-  font-size: 1rem;
-}
+
 .sweet-modal.theme-dark {
   background: black !important;
 }
@@ -258,7 +248,7 @@ h2 {
 }
 
 .red:after, .red:before {
-  background-color: red;
+  background-color: #c13a47;
   opacity: 0;
   -webkit-transition: .5s ease;
     transition: .5s ease;
@@ -270,30 +260,50 @@ h2 {
   height:auto;
   margin-bottom: 3rem;
   border-radius: 1rem;
-
   @media screen and (max-width: 500px) {
     display:none;
   }
 }
 .hello{
-
   height: auto;
-  @media screen and (max-width: 420px) {
-    margin-left: 2rem;
-  }
-
 }
+.bodydesc {
+  height: 16.5rem;
+   overflow-y: auto;
+}
+
+#menu1 {
+    height: 20rem;
+    width: 100% !important;
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+/* optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+.hello {
+  margin-top: 5rem;
+}
+
 .desc
 {
   color: white;
   @media screen and (min-width: 421px) {
-    padding: 3rem 3rem 3rem 3rem;
+    padding: 1rem 1rem 1rem 1rem;
+    font-weight: 900;
   }
 
 }
 .bgcover{
   background-color:#080808;
   padding-bottom: 2rem;
+  margin-left: -5%;
 }
 
 .details-btn{
@@ -319,5 +329,38 @@ h2 {
     @media screen and (max-width: 420px){
       margin-top: 10px !important;
     }
+}
+.fixedht{
+  height: 35rem;
+  padding-bottom: 2rem;
+}
+@media screen and (max-width: 420px){
+  .container{
+    padding-left: 32%;
+  }
+  .row{
+    margin-left: -4rem;
+  }
+ 
+}
+@media screen and (min-width: 1024px){
+  .bgcover{
+      width: 900px;
+    }
+  }
+@media screen and (min-width: 1200px){
+  .bgcover{
+      width: 1100px;
+    }
+  }
+@media screen and  (max-width: 1024px) and (min-width: 767px){
+  .container {
+   padding-left: 13%!important;
+  }
+}
+@media screen and  (max-width: 430px) and (min-width: 320px){
+  .container {
+    padding-left: 22%;
+  }
 }
 </style>
