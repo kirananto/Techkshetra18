@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="hello" ref="prev">
     <h1>EVENTS</h1>
     <!-- modalbegins -->
     <sweet-modal modal-theme="dark" blocking enable-mobile-fullscreen overlay-theme="dark" ref="modal">
@@ -7,12 +7,16 @@
     </sweet-modal>
     <!-- modal ends -->
      <div class="container">
-      <div class="row"  ref="row">
-        <div class="con" v-for="(item,k) in events" :key="k">
-        
-        <div class="thumb overlay red" ref="item" :style="{ 'background-image': 'url(/static/images/Non_tech/' + item.photoURL}"  @click="setSelected(item, k)">
+      <div class="row" >
+   
+   <!-- hello -->
+    <div v-for="(item,k) in chunkedEvents" :key="k">
+        <div class="con" v-for="(i,k) in item" :key="k">
+
+        <div class="thumb overlay red" ref="item" :style="{ 'background-image': 'url(/static/images/Non_tech/' + i.photoURL}"  @click="setSelected(i)">
         </div>
-        <div class="detail bgcover col-md-12" v-if="shouldDisplay(k)" transition>
+      </div>
+      <div class="detail bgcover col-md-12" transition>
           <div class="row">
           <i class="material-icons" style="margin-left: 100%;color: white;" v-on:click="closeSelected">close</i>
           </div>
@@ -55,17 +59,17 @@
             </div>
           </div>
         </div>
-        </div>
-     </div>
-     
-  </div>
-  </div>
+    </div>
+
+   <!-- ends -->
+      </div></div></div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import firebase from 'firebase'
 import Registration from './Registration'
+import chunk from 'chunk'
 import { SweetModal, SweetModalTab } from 'sweet-modal-vue'
 require('firebase/firestore')
 export default {
@@ -88,11 +92,8 @@ export default {
     }
   },
   methods: {
-    setSelected: function (event, value) {
-      console.log(value)
-        this.selected.key = value 
+    setSelected: function (event) {
         this.selected.event = event
-        this.selected.value = parseInt(value / this.noele)
     },
     closeSelected: function () {
       this.selected = {
@@ -129,18 +130,15 @@ export default {
     ...mapGetters(['getEvents']),
     events: function () {
       return this.getEvents.filter(event => event.branch === this.branch)
+    },
+    chunkedEvents: function () {
+      return chunk(this.events, this.noele)
     }
   },
   mounted () {
     console.log(this.events.length - 1)
-    this.noele = parseInt(this.$refs.row.clientWidth / 256)
-
-    // =======================
-     firebase.firestore().collection('events').where('photoURL', '==', 'https://path_to_image').get().then(querySnapshot => {
-       querySnapshot.forEach(doc => {
-         console.log(doc.data().id)
-       })
-     })
+    console.log(this.$refs)
+    this.noele = 4
   }
 }
 </script>
