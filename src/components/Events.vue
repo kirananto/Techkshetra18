@@ -308,6 +308,11 @@ h2 {
   // margin-left: 8%;
   margin-bottom: 4rem;
 }
+@media screen and (max-width: 320px){
+ a {
+  font-size:15px;
+ }
+}
 
  .rose {
    @media screen and (max-width: 340px){
