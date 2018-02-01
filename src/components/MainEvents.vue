@@ -60,7 +60,7 @@ $content: 'VIEW DETAILS';
   
   @media screen  and (max-width: 420px ){
     margin-right: 20%;
-  margin-left: 3.2rem !important;
+  margin-left: 10% !important;
   }
 }
 
