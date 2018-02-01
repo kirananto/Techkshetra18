@@ -57,7 +57,7 @@
             </div>
             </div>
           </div>
-</div>
+        </div>
       </div>
    <!-- ends -->
       </div>
@@ -127,7 +127,7 @@ export default {
   },
   mounted () {
     console.log(this.events.length - 1)
-    this.noele = parseInt(this.$refs.prev.clientWidth / 276) - 1
+    this.noele = parseInt(this.$refs.prev.clientWidth / 240) - 1
     if (this.noele > 4) {
       this.noele = 4
     }
@@ -338,7 +338,7 @@ h2 {
 }
 @media screen and (max-width: 420px){
   .container{
-    padding-left: 4.3rem;
+    padding-left: 32%;
   }
   .row{
     margin-left: -4rem;
@@ -355,4 +355,10 @@ h2 {
       width: 1100px;
     }
   }
+@media (min-width: 992px){
+  .container {
+    // padding-left: 10%;
+  }
+}
+
 </style>
