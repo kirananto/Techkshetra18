@@ -306,6 +306,7 @@ h2 {
 .bgcover{
   background-color:#080808;
   padding-bottom: 2rem;
+  margin-left: -5%;
 }
 
 .details-btn{
@@ -360,5 +361,9 @@ h2 {
    padding-left: 13%!important;
   }
 }
-
+@media screen and  (max-width: 430px) and (min-width: 320px){
+  .container {
+    padding-left: 22%;
+  }
+}
 </style>
