@@ -355,9 +355,9 @@ h2 {
       width: 1100px;
     }
   }
-@media (min-width: 992px){
+@media screen and  (max-width: 1024px) and (min-width: 767px){
   .container {
-    // padding-left: 10%;
+   padding-left: 13%!important;
   }
 }
 
