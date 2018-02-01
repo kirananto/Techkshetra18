@@ -14,7 +14,7 @@
         </div>
         <div class="detail bgcover col-md-12" v-if="shouldDisplay(k)" transition>
           <div class="row">
-          <i class="material-icons offset-md-11 offset-sm-11" style="color:white;" v-on:click="closeSelected">close</i>
+          <i class="material-icons" style="margin-left: 100%;color: white;" v-on:click="closeSelected">close</i>
           </div>
           <div class="row">
           <div class="col-md-6">
@@ -24,25 +24,27 @@
             
               <h2>{{selected.event.name}}</h2>
             <ul class="nav nav-tabs col-md-12 col-sm-12">
-              <li class="active col-md-4  col-4"><a data-toggle="tab" href="#about">ABOUT</a></li>
-              <li class="col-md-4 col-4"><a data-toggle="tab" href="#menu1">RULES</a></li>
-              <li class="col-md-4  col-4"><a data-toggle="tab" href="#menu2">CONTACT</a></li>
+              <li class=" col-md-4 active col-4" ><a data-toggle="tab" :href="'#'+selected.event.name+'about'">ABOUT</a></li>
+              <li class="col-md-4 col-4"><a data-toggle="tab" :href="'#'+selected.event.name+'menu1'">RULES</a></li>
+              <li class="col-md-4  col-4"><a data-toggle="tab" :href="'#'+selected.event.name+'menu2'">CONTACT</a></li>
             </ul>
 
             <div class="tab-content">
-              <div id="about" class="tab-pane fade in active">
+              <div :id="selected.event.name+'about'" class="tab-pane fade in active">
                 <div class="bodydesc">
                 <p class="desc" >{{selected.event.details}}</p>
                 </div>
                 <!-- <p class="desc" >Registration Fee: Rs.{{selected.event.registrationFee}}</p> -->
                 <!-- <div class="details-btn" @click="register(selected.event)">Register</div> -->
               </div>
-              <div id="menu1" class="tab-pane fade">
+              <div :id="selected.event.name+'menu1'" class="tab-pane fade">
+                <div class="bodydesc">
                 <ul>
                 <li class="rules" v-for="(item,key) in selected.event.eventRules" :key="key">{{item}}</li>
                 </ul>
+                </div>
               </div>
-              <div id="menu2" class="tab-pane fade">
+              <div  :id="selected.event.name+'menu2'" class="tab-pane fade">
                  <ul>
                <li class="rules" v-for="(item,key) in selected.event.contact" :key="key">{{item}}</li>
                  </ul>
