@@ -9,9 +9,9 @@
      <div class="container"> 
    <!-- hello -->
     <div v-for="(item,k) in chunkedEvents" :key="k">
-      <div class="row"> 
- <div class="thumb overlay red" v-for="(i,key) in item" :key="key" v-on:click="setSelected(i, k)" :style="{ 'background-image': 'url(/static/images/Non_tech/' + i.photoURL}" >
-      </div>
+    <div class="row rose"> 
+ <div class="thumb overlay red" v-for="(i,key) in item" :key="key" v-on:click="setSelected(i, k)" :style="{ 'background-image': 'url(/static/images/Non_tech/' + i.photoURL }" >
+      </div> 
         </div>
       <div v-if="selected.value === k"> 
         <!-- insert old code here -->
@@ -127,7 +127,7 @@ export default {
   },
   mounted () {
     console.log(this.events.length - 1)
-    this.noele = parseInt(this.$refs.prev.clientWidth / 240) - 1
+    this.noele = parseInt(this.$refs.prev.clientWidth / 240)
     if (this.noele > 4) {
       this.noele = 4
     }
@@ -193,7 +193,15 @@ h2 {
 .container:hover{
   opacity: 1;
 }
-
+ 
+ .rose {
+   @media screen and (max-width: 340px){
+     margin-left: 5%;
+   }
+   @media screen and (max-width: 425px) and (min-width: 341px) {
+     margin-left: 15%;
+   }
+ }
 .detail {
   padding-top: 1rem;
   display: block;
@@ -297,16 +305,16 @@ h2 {
 .desc
 {
   color: white;
-  @media screen and (min-width: 421px) {
-    padding: 1rem 1rem 1rem 1rem;
-    font-weight: 900;
-  }
+  // @media screen and (min-width: 421px) {
+  //   padding: 1rem 1rem 1rem 1rem;
+  //   font-weight: 900;
+  // }
 
 }
 .bgcover{
   background-color:#080808;
   padding-bottom: 2rem;
-  margin-left: -5%;
+  margin-left: 8%;
 }
 
 .details-btn{
@@ -329,41 +337,41 @@ h2 {
     -webkit-transition: .5s ease;
     transition: .5s ease;
     }
-    @media screen and (max-width: 420px){
-      margin-top: 10px !important;
-    }
+    // @media screen and (max-width: 420px){
+    //   margin-top: 10px !important;
+    // }
 }
 .fixedht{
   height: 35rem;
   padding-bottom: 2rem;
 }
-@media screen and (max-width: 420px){
-  .container{
-    padding-left: 32%;
-  }
-  .row{
-    margin-left: -4rem;
-  }
+// @media screen and (max-width: 420px){
+//   .container{
+//     padding-left: 32%;
+//   }
+//   .row{
+//     margin-left: -4rem;
+//   }
  
-}
-@media screen and (min-width: 1024px){
-  .bgcover{
-      width: 900px;
-    }
-  }
-@media screen and (min-width: 1200px){
-  .bgcover{
-      width: 1100px;
-    }
-  }
-@media screen and  (max-width: 1024px) and (min-width: 767px){
-  .container {
-   padding-left: 13%!important;
-  }
-}
-@media screen and  (max-width: 430px) and (min-width: 320px){
-  .container {
-    padding-left: 22%;
-  }
-}
+// }
+// @media screen and (min-width: 1024px){
+//   .bgcover{
+//       width: 900px;
+//     }
+//   }
+// @media screen and (min-width: 1200px){
+//   .bgcover{
+//       width: 1100px;
+//     }
+//   }
+// @media screen and  (max-width: 1024px) and (min-width: 767px){
+//   .container {
+//    padding-left: 13%!important;
+//   }
+// }
+// @media screen and  (max-width: 430px) and (min-width: 320px){
+//   .container {
+//     padding-left: 22%;
+//   }
+// }
 </style>
