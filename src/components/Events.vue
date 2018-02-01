@@ -305,16 +305,18 @@ h2 {
 .desc
 {
   color: white;
-  // @media screen and (min-width: 421px) {
-  //   padding: 1rem 1rem 1rem 1rem;
-  //   font-weight: 900;
-  // }
+  padding-top: 2rem;
+  @media screen and (min-width: 421px) {
+    padding: 1rem 1rem 1rem 1rem;
+    font-weight: 900;
+  }
 
 }
 .bgcover{
   background-color:#080808;
   padding-bottom: 2rem;
   margin-left: 8%;
+  margin-bottom: 4rem;
 }
 
 .details-btn{
