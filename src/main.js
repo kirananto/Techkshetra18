@@ -29,15 +29,19 @@ var router = new VueRouter({
 router.beforeEach((to, from, next) => {
   if (store.getters.getEvents[0] === undefined) {
     firebase.firestore().collection('events').get().then(querySnapshot => {
+      var data = []
       querySnapshot.forEach(doc => {
-        store.commit('PUSH_EVENT', doc.data())
+        data.push(doc.data())
       })
+      store.commit('PUSH_EVENT', data)
     })
     if (store.getters.getWorkshops[0] === undefined) {
       firebase.firestore().collection('workshops').get().then(querySnapshot => {
+        var data = []
         querySnapshot.forEach(doc => {
-          store.commit('PUSH_WORKSHOP', doc.data())
+          data.push(doc.data())
         })
+        store.commit('PUSH_WORKSHOP', data)
       })
       next()
     } else {
@@ -46,9 +50,11 @@ router.beforeEach((to, from, next) => {
   } else {
     if (store.getters.getWorkshops[0] === undefined) {
       firebase.firestore().collection('workshops').get().then(querySnapshot => {
+        var data = []
         querySnapshot.forEach(doc => {
-          store.commit('PUSH_WORKSHOP', doc.data())
+          data.push(doc.data())
         })
+        store.commit('PUSH_WORKSHOP', data)
       })
       next()
     } else {

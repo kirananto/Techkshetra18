@@ -1,8 +1,8 @@
 export default {
     PUSH_EVENT (state, event) {
-        state.events.push(event)
+        state.events = event
     },
     PUSH_WORKSHOP (state, workshop) {
-        state.workshops.push(workshop)
+        state.workshops = workshop
     }
 }
