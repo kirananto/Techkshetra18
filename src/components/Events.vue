@@ -3,7 +3,7 @@
     <h1>EVENTS</h1>
     <!-- modalbegins -->
     <sweet-modal modal-theme="dark" blocking enable-mobile-fullscreen overlay-theme="dark" ref="modal">
-      <registration v-if="registerEvent" :id="registerEvent"></registration>
+      <registration v-if="registerEvent" :maxparticipants="selected.event.max_participants" :id="registerEvent"></registration>
     </sweet-modal>
     <!-- modal ends -->
      <div class="container"> 
