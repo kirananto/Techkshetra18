@@ -34,8 +34,7 @@
                 <div class="bodydesc">
                 <p class="desc" >{{selected.event.details}}</p>
                 </div>
-                <!-- <p class="desc" >Registration Fee: Rs.{{selected.event.registrationFee}}</p> -->
-                <!-- <div class="details-btn" @click="register(selected.event)">Register</div> -->
+              
               </div>
               <div :id="selected.event.name+'menu1'" class="tab-pane fade">
                 <div class="bodydesc">
@@ -49,6 +48,9 @@
                <li class="rules" v-for="(item,key) in selected.event.contact" :key="key">{{item}}</li>
                  </ul>
               </div>
+
+              <p class="desc" >Registration Fee: Rs.{{selected.event.registrationFee}}</p>
+                <div class="details-btn" @click="register(selected.event)">Register</div>
             </div>
             </div>
           </div>
@@ -149,6 +151,10 @@ $content: 'VIEW DETAILS';
   margin-top:3rem;
 }
 
+.tab-content>.active {
+    display: block;
+    height: 15.5rem;
+}
 .con {
 	display: contents;
 }
@@ -275,7 +281,7 @@ h2 {
   height: auto;
 }
 .bodydesc {
-  height: 20rem;
+  height: 16.5rem;
    overflow-y: auto;
 }
 
@@ -302,7 +308,8 @@ h2 {
 {
   color: white;
   @media screen and (min-width: 421px) {
-    padding: 3rem 3rem 3rem 3rem;
+    padding: 1rem 1rem 1rem 1rem;
+    font-weight: 900;
   }
 
 }
