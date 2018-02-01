@@ -193,24 +193,11 @@ h2 {
 .container:hover{
   opacity: 1;
 }
- 
- .rose {
-   @media screen and (max-width: 340px){
-     margin-left: 5%;
-   }
-   @media screen and (max-width: 425px) and (min-width: 341px) {
-     margin-left: 15%;
-   }
-  @media screen and (max-width: 1200px) and (min-width: 960px) {
-   padding-left: 8%;
-  }
- }
 .detail {
   padding-top: 1rem;
   display: block;
   padding-right: 5rem;
 }
-
 .v-transition {
   transition: all .9s ease;
   height: 500px;
@@ -321,6 +308,22 @@ h2 {
   margin-left: 8%;
   margin-bottom: 4rem;
 }
+
+ .rose {
+   @media screen and (max-width: 340px){
+     margin-left: 5%;
+   }
+   @media screen and (max-width: 425px) and (min-width: 341px) {
+     margin-left: 15%;
+   }
+   @media screen and (max-width: 1200px) and (min-width: 960px) {
+     padding-left: 12%;
+   }
+
+  @media screen and (max-width: 1200px) and (min-width: 960px) {
+   padding-left: 8%;
+  }
+ }
 
 .details-btn{
    

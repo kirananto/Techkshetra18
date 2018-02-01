@@ -9,7 +9,7 @@
      <div class="container"> 
    <!-- hello -->
     <div v-for="(item,k) in chunkedEvents" :key="k">
-      <div class="row"> 
+      <div class="row rose"> 
  <div class="thumb overlay red" v-for="(i,key) in item" :key="key" v-on:click="setSelected(i, k)" :style="{ 'background-image': 'url(/static/images/Non_tech/' + i.photoURL}" >
       </div>
         </div>
@@ -342,33 +342,51 @@ h2 {
   height: 35rem;
   padding-bottom: 2rem;
 }
-@media screen and (max-width: 420px){
-  .container{
-    padding-left: 32%;
+.bgcover{
+  background-color:#080808;
+  padding-bottom: 2rem;
+  margin-left: 8%;
+  margin-bottom: 4rem;
+}
+
+ .rose {
+   @media screen and (max-width: 340px){
+     margin-left: 5%;
+   }
+   @media screen and (max-width: 425px) and (min-width: 341px) {
+     margin-left: 15%;
+   }
+  @media screen and (max-width: 1200px) and (min-width: 960px) {
+   padding-left: 8%;
   }
-  .row{
-    margin-left: -4rem;
-  }
+ }
+// @media screen and (max-width: 420px){
+//   .container{
+//     padding-left: 32%;
+//   }
+//   .row{
+//     margin-left: -4rem;
+//   }
  
-}
-@media screen and (min-width: 1024px){
-  .bgcover{
-      width: 900px;
-    }
-  }
-@media screen and (min-width: 1200px){
-  .bgcover{
-      width: 1100px;
-    }
-  }
-@media screen and  (max-width: 1024px) and (min-width: 767px){
-  .container {
-   padding-left: 13%!important;
-  }
-}
-@media screen and  (max-width: 430px) and (min-width: 320px){
-  .container {
-    padding-left: 22%;
-  }
-}
+// }
+// @media screen and (min-width: 1024px){
+//   .bgcover{
+//       width: 900px;
+//     }
+//   }
+// @media screen and (min-width: 1200px){
+//   .bgcover{
+//       width: 1100px;
+//     }
+//   }
+// @media screen and  (max-width: 1024px) and (min-width: 767px){
+//   .container {
+//    padding-left: 13%!important;
+//   }
+// }
+// @media screen and  (max-width: 430px) and (min-width: 320px){
+//   .container {
+//     padding-left: 22%;
+//   }
+// }
 </style>
