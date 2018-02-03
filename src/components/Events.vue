@@ -307,15 +307,31 @@ h2 {
   padding-bottom: 2rem;
   // margin-left: 8%;
   margin-bottom: 4rem;
+  @media screen and (max-width: 340px){
+     padding-left: 5%;
+  }
+   @media screen and (max-width: 425px) and (min-width: 341px) {
+      padding-left: 2%;
+   }
+//    @media screen and (max-width: 959px) and (min-width: 426px) {
+//      padding-left: 12%;
+//    }
+
+//   @media screen and (max-width: 1200px) and (min-width: 960px) {
+//    padding-left: 8%;
+//   }
+//   @media screen and (min-width: 1201px) {
+//     padding-left: 2%;
+//  }
 }
 @media screen and (max-width: 320px){
  a {
   font-size:15px;
  }
-     padding-left: 5%;//320
-
-         margin-left: 5%;//768
 }
+// .bgcover{
+//          margin-left: 5%;//768
+// }
 
  .rose {
    @media screen and (max-width: 340px){
