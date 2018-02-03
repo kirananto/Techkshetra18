@@ -232,7 +232,7 @@ h2 {
     text-transform: uppercase;
     letter-spacing: 2px;
     padding: 5px 5px;
-    border: 3px solid #c13a47;
+    border: 3px solid black;// #c13a47;
     display: inline-block;
     margin: 30px 0 0;
     outline: none;
@@ -243,13 +243,13 @@ h2 {
 }
 
 .overlay:hover:after  {
-  opacity:1;
+  opacity:.75;
   -webkit-transition: .5s ease;
     transition: .5s ease;
 }
 
 .red:after, .red:before {
-  background-color: #c13a47;
+  background-color: black;//#c13a47;
   opacity: 0;
   -webkit-transition: .5s ease;
     transition: .5s ease;
