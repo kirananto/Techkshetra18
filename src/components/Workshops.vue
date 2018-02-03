@@ -324,7 +324,7 @@ h2 {
     padding: 10px 20px;
     border: 3px solid white;
     display: inline-block;
-    margin: 45px 0 0 0;
+    margin: 25px 0 0 0;
     outline: none;
     -webkit-transition: .5s ease;
     transition: .5s ease;
