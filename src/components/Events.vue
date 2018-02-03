@@ -312,6 +312,9 @@ h2 {
  a {
   font-size:15px;
  }
+     padding-left: 5%;//320
+
+         margin-left: 5%;//768
 }
 
  .rose {
@@ -343,7 +346,7 @@ h2 {
     padding: 10px 20px;
     border: 3px solid white;
     display: inline-block;
-    margin: -25px 0 0 0;
+    margin: 45px 0 0 0;
     outline: none;
     -webkit-transition: .5s ease;
     transition: .5s ease;
