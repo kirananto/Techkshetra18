@@ -23,7 +23,7 @@
       :bg-color="bgColor"
       :main-icon="mainIcon"
        @sponsors="sponsors"
-     
+       @deadlock="deadlock"
        @workshops="workshops"
        @events="events"
        @contact="contact"
@@ -72,6 +72,11 @@ export default {
                   tooltip: 'Contact Us'
               },
               {
+                  name: 'deadlock',
+                  icon: 'lock',
+                  tooltip: 'Deadlock'
+              },
+              {
                   name: 'qrcode',
                   icon: 'code',
                   tooltip: 'QRCode'
@@ -88,6 +93,9 @@ export default {
       },
       autoshow () {
         this.$router.replace('/autoshow')
+      },
+      deadlock () {
+        window.location.href = 'http://deadlock.techkshetra18.in'
       },
       workshops () {
         this.$router.replace('/workshops')

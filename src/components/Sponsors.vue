@@ -1,11 +1,11 @@
 <template>
-  <div class="mobmargin">
+  <div class="mobmargin container">
     <h1 class="headmain hmain">SPONSORS</h1>
     <div class="container">
       <div class="row">
         <div class="col-md-6">
           <h3 class="hmain headerfont">Diamond Sponsors</h3>
-          <img src="/static/images/sponsors/balco.png" class="col-md-9 sponmargin">
+          <img src="/static/images/sponsors/BALCO.png" class="col-md-9 sponmargin">
         </div>
         <div class="col-md-6 ">
           <h3 class="hmain headerfont">Platinum Sponsors</h3>
@@ -32,7 +32,7 @@ export default {
 h1, h2 {
   font-weight: normal;
   font-family:'Samarkan Normal';
-  font-size:5rem;
+  font-size:4.5rem;
   color:#D6D0D0;
 }
 h3 {
