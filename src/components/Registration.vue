@@ -84,6 +84,7 @@ export default {
     }
   },
   mounted () {
+    console.log(this.maxparticipants)
     this.currentUser = firebase.auth().currentUser
     QRCode.toDataURL(firebase.auth().currentUser.uid, { errorCorrectionLevel: 'H' })
             .then(url => {
