@@ -109,8 +109,10 @@ export default {
         var provider = new firebase.auth.GoogleAuthProvider()
           firebase.auth().signInWithPopup(provider)
           .then((result) => {
+            this.registerEvent = this.selected.event
             this.$refs.modal.open() 
           }).catch((error) => {
+            this.registerEvent = null
             console.log(error.message)
           })
       }

@@ -56,7 +56,7 @@
                  </ul>
               </div>
 
-              <p class="desc" >Registration Fee: Rs.{{selected.event.registrationFee}}</p>
+              <p class="desc" >Registration Fee: ₹.{{selected.event.registrationFee}}</p>
                 <div class="details-btn" @click="register(selected.event)">Register</div>
             </div>
             </div>
@@ -113,8 +113,10 @@ export default {
         var provider = new firebase.auth.GoogleAuthProvider()
           firebase.auth().signInWithPopup(provider)
           .then((result) => {
+            this.registerEvent = this.selected.event
             this.$refs.modal.open() 
           }).catch((error) => {
+            this.registerEvent = null
             console.log(error.message)
           })
       }
