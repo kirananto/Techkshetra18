@@ -325,7 +325,6 @@ h2 {
 // //    @media screen and (max-width: 959px) and (min-width: 426px) {
 // //      padding-left: 12%;
 // //    }
-
 // //   @media screen and (max-width: 1200px) and (min-width: 960px) {
 // //    padding-left: 8%;
 // //   }
