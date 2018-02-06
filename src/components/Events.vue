@@ -305,7 +305,7 @@ h2 {
   color: white;
   padding-top: 2rem;
   @media screen and (min-width: 421px) {
-    padding: 1rem 1rem 0rem 1rem;
+    padding: 1rem 1rem 1rem 1rem;
     font-weight: 900;
   }
 
