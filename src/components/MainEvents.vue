@@ -82,8 +82,15 @@ h1, h2 {
   color:#D6D0D0;
 }
 
+
 h2 {
   font-size: 4rem;
+  @media screen and (max-width: 340px){
+     font-size: 2.25rem;
+  }
+   @media screen and (max-width: 425px) and (min-width: 341px) {
+     font-size: 2.75rem;
+   }
 }
 
 .thumb {

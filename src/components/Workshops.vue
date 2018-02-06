@@ -157,7 +157,9 @@ $content: 'VIEW DETAILS';
   margin-top:1rem;
   text-align: left;
 }
-
+a{
+   color: white;
+}
 .title {
    text-transform: uppercase;
    color: white;
@@ -176,8 +178,15 @@ h1, h2 {
 	background: rgba(19, 19, 19, 0.9);
 }
 
+
 h2 {
   font-size: 4rem;
+  @media screen and (max-width: 340px){
+     font-size: 2.25rem;
+  }
+   @media screen and (max-width: 425px) and (min-width: 341px) {
+     font-size: 2.75rem;
+   }
 }
 
 .thumb {
