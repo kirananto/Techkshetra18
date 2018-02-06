@@ -109,10 +109,8 @@ export default {
         var provider = new firebase.auth.GoogleAuthProvider()
           firebase.auth().signInWithPopup(provider)
           .then((result) => {
-            this.registerEvent = this.selected.event
             this.$refs.modal.open() 
           }).catch((error) => {
-            this.registerEvent = null
             console.log(error.message)
           })
       }
@@ -164,6 +162,7 @@ h1, h2 {
   color:#D6D0D0;
 }
 
+
 .sweet-modal.theme-dark {
   background: black !important;
 }
@@ -173,6 +172,12 @@ h1, h2 {
 
 h2 {
   font-size: 4rem;
+  @media screen and (max-width: 340px){
+     font-size: 2.25rem;
+  }
+   @media screen and (max-width: 425px) and (min-width: 341px) {
+     font-size: 2.75rem;
+   }
 }
 
 .thumb {
@@ -256,7 +261,6 @@ h2 {
   -webkit-transition: .5s ease;
     transition: .5s ease;
 }
-
 .photo {
   margin: 1rem;
   width: 100%;
@@ -411,4 +415,6 @@ h2 {
 //     padding-left: 22%;
 //   }
 // }
+
+
 </style>
