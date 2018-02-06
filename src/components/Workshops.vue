@@ -259,7 +259,7 @@ h2 {
 }
 
 .red:after, .red:before {
-  background-color: #c13a47;
+  background-color: black;
   opacity: 0;
   -webkit-transition: .5s ease;
     transition: .5s ease;
