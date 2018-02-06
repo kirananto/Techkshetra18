@@ -241,7 +241,7 @@ h2 {
     text-transform: uppercase;
     letter-spacing: 2px;
     padding: 5px 5px;
-    border: 3px solid #c13a47;
+    border: 3px solid black;// #c13a47;
     display: inline-block;
     margin: 30px 0 0;
     outline: none;
@@ -250,6 +250,7 @@ h2 {
     -webkit-transition: .5s ease;
     transition: .5s ease;
 }
+
 
 .overlay:hover:after  {
   opacity:1;
