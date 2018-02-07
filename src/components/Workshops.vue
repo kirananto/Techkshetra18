@@ -43,11 +43,13 @@
               </div>
               <div :id="selected.event.name+'menu1'" class="tab-pane fade">
                 <div class="bodydesc">
-                <h4 class="title">Venues</h4>
+                  <br>
+                
+                <p style="font-weight: 500;" class="title">Venue</p>
                 <ul>
                 <li class="rules" v-for="(item,key) in selected.event.eventVenue" :key="key">{{item}}</li>
                 </ul>
-                <h4 class="title">DURATION : {{selected.event.duration}}</h4> 
+                <p style="font-weight: 500;" class="title">DURATION : {{selected.event.duration}}</p> 
                 </div>
               </div>
               <div  :id="selected.event.name+'menu2'" class="tab-pane fade">
