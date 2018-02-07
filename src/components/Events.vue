@@ -52,7 +52,7 @@
                  </ul>
               </div>
               <div class="desc">
-              <p style="margin-bottom: -15px;" >Registration Fee ₹{{selected.event.registrationFee}} </p>&nbsp;<p style="margin-bottom: -15px;"> Prizes Worth ₹{{selected.event.prizeAmount}}</p>
+              <p style="margin-bottom: -15px;" >Registration Fee ₹50 </p>&nbsp;<p style="margin-bottom: -15px;"> Prizes Worth ₹{{selected.event.prizeAmount}}</p>
               </div>
                 <div class="details-btn" @click="register(selected.event)">Register</div>
             </div>
