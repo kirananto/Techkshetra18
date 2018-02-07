@@ -56,7 +56,7 @@
                  </ul>
               </div>
 
-              <p class="desc" >Registration Fee: ₹.{{selected.event.registrationFee}}</p>
+              <p class="desc" >Registration Fee: ₹{{selected.event.registrationFee}}</p>
                 <div class="details-btn" @click="register(selected.event)">Register</div>
             </div>
             </div>

@@ -51,10 +51,9 @@
                <li class="rules" v-for="(item,key) in selected.event.contact" :key="key">{{item}}</li>
                  </ul>
               </div>
-<!-- 
-              <p class="desc" >Registration Fee: Rs.{{selected.event.registrationFee}}</p> -->
-              <p class="desc" > Prize Amount Rs : {{selected.event.prizeAmount}}</p>
-              
+              <div class="desc">
+              <p style="margin-bottom: -15px;" >Registration Fee ₹{{selected.event.registrationFee}} </p>&nbsp;<p style="margin-bottom: -15px;"> Prizes Worth ₹{{selected.event.prizeAmount}}</p>
+              </div>
                 <div class="details-btn" @click="register(selected.event)">Register</div>
             </div>
             </div>
@@ -305,7 +304,7 @@ h2 {
   color: white;
   padding-top: 2rem;
   @media screen and (min-width: 421px) {
-    padding: 1rem 1rem 1rem 1rem;
+    // padding: 1rem 1rem 1rem 1rem;
     font-weight: 900;
   }
 
